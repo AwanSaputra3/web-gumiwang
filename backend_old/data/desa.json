@@ -1,0 +1,33 @@
+{
+  "nama": "Desa Gumiwang",
+  "kecamatan": "Purwanegara",
+  "kabupaten": "Banjarnegara",
+  "provinsi": "Jawa Tengah",
+  "kodePos": "53472",
+  "alamatLengkap": "Desa Gumiwang, Kecamatan Purwanegara, Kabupaten Banjarnegara, Jawa Tengah 53472",
+  "deskripsi": "Desa Gumiwang merupakan desa yang kaya akan potensi sumber daya alam, khususnya pada sektor pertanian dan perikanan. Dikenal dengan sentra perikanan air tawar (terutama lele dan nila) dan hamparan sawah yang subur, desa ini terus bertransformasi menjadi desa yang mandiri dan berdaya saing.",
+  "sejarah": "Desa Gumiwang memiliki sejarah panjang yang erat kaitannya dengan perkembangan pertanian di Banjarnegara. Sejak dahulu, masyarakat desa ini dikenal gigih dalam mengolah lahan pertanian dan memanfaatkan sumber daya air untuk perikanan air tawar. Seiring berkembangnya zaman, Desa Gumiwang mulai mengembangkan berbagai komoditas unggulan dan UMKM olahan hasil bumi untuk meningkatkan perekonomian warga.",
+  "demografi": {
+    "luasWilayah": "320 hektar",
+    "jumlahPenduduk": "4.500 jiwa",
+    "jumlahKK": "1.200 KK",
+    "pekerjaanUtama": "Petani dan Peternak Ikan"
+  },
+  "kontak": {
+    "whatsapp": "6281234567890",
+    "email": "pemdes@gumiwang.desa.id",
+    "instagram": "@desagumiwang",
+    "facebook": "Pemdes Gumiwang",
+    "alamat": "Kantor Kepala Desa Gumiwang, Jl. Raya Gumiwang No.1, Banjarnegara"
+  },
+  "visiMisi": {
+    "visi": "Mewujudkan Desa Gumiwang yang Mandiri, Sejahtera, dan Berbudaya melalui pengembangan sektor Pertanian, Perikanan, dan UMKM yang Berkelanjutan.",
+    "misi": [
+      "Meningkatkan kualitas hasil pertanian dan perikanan budidaya air tawar",
+      "Memberdayakan perekonomian masyarakat melalui UMKM lokal",
+      "Membangun infrastruktur desa yang memadai dan berwawasan lingkungan",
+      "Meningkatkan pelayanan publik yang transparan dan akuntabel",
+      "Mengembangkan potensi desa sebagai destinasi wisata edukasi"
+    ]
+  }
+}

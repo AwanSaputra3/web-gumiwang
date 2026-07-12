@@ -1,0 +1,32 @@
+[
+  {
+    "id": 1,
+    "judul": "Panen Raya Lele Sukses Digelar",
+    "slug": "panen-raya-lele-sukses",
+    "ringkasan": "Kelompok pembudidaya ikan Desa Gumiwang berhasil melakukan panen raya lele dengan total hasil mencapai 5 ton dalam satu siklus.",
+    "isiLengkap": "Pada hari Minggu lalu, kelompok pembudidaya ikan (Pokdakan) Desa Gumiwang melaksanakan panen raya ikan lele. Kegiatan ini dihadiri oleh Kepala Desa dan perwakilan dari Dinas Perikanan Kabupaten Banjarnegara. Total hasil panen mencapai 5 ton yang dipelihara dengan sistem bioflok selama 3 bulan. Keberhasilan ini diharapkan dapat memotivasi warga lain untuk ikut membudidayakan ikan air tawar guna meningkatkan ekonomi keluarga.",
+    "tanggal": "20 Oktober 2025",
+    "kategori": "Perikanan",
+    "image": "https://images.unsplash.com/photo-1524334228333-0f6db392f8a1?auto=format&fit=crop&w=800&q=80"
+  },
+  {
+    "id": 2,
+    "judul": "Desa Gumiwang Kembangkan Beras Organik",
+    "slug": "gumiwang-kembangkan-beras-organik",
+    "ringkasan": "Dalam upaya mewujudkan pertanian berkelanjutan, gabungan kelompok tani mulai menerapkan sistem pertanian organik untuk tanaman padi.",
+    "isiLengkap": "Mulai musim tanam tahun ini, Gabungan Kelompok Tani (Gapoktan) Desa Gumiwang telah mengalokasikan 10 hektar lahan sawah khusus untuk pengembangan beras organik. Penggunaan pupuk kimia mulai dikurangi drastis dan digantikan dengan pupuk kompos serta pestisida nabati buatan sendiri. Langkah ini diambil untuk menjaga kesuburan tanah sekaligus memenuhi permintaan pasar akan bahan pangan sehat dan bebas residu kimia.",
+    "tanggal": "12 November 2025",
+    "kategori": "Pertanian",
+    "image": "https://images.unsplash.com/photo-1590682680695-43b964a3ae17?auto=format&fit=crop&w=800&q=80"
+  },
+  {
+    "id": 3,
+    "judul": "Pelatihan Olahan Hasil Ikan untuk KWT",
+    "slug": "pelatihan-olahan-hasil-ikan",
+    "ringkasan": "Kelompok Wanita Tani (KWT) mendapatkan pelatihan pembuatan abon dan nugget dari bahan dasar ikan lele.",
+    "isiLengkap": "Untuk meningkatkan nilai jual hasil perikanan, Pemerintah Desa Gumiwang menyelenggarakan pelatihan pengolahan hasil ikan bagi Kelompok Wanita Tani (KWT). Berlokasi di balai desa, para peserta diajarkan cara membuat abon lele, nugget, dan kerupuk tulang lele. Produk-produk ini diharapkan tidak hanya untuk konsumsi sendiri, tetapi juga bisa dipasarkan sebagai produk unggulan UMKM Desa Gumiwang.",
+    "tanggal": "05 Desember 2025",
+    "kategori": "UMKM",
+    "image": "https://images.unsplash.com/photo-1582285516943-34e8be3426cb?auto=format&fit=crop&w=800&q=80"
+  }
+]

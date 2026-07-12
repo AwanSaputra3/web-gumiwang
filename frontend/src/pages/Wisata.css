@@ -1,0 +1,45 @@
+/* ═══ Wisata Page ═══ */
+.wisata-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+  gap: var(--space-6);
+}
+
+.wisata-count {
+  text-align: center;
+  color: var(--color-text-muted);
+  font-size: var(--font-size-sm);
+  margin-bottom: var(--space-6);
+}
+
+.wisata-count strong {
+  color: var(--color-forest-600);
+}
+
+.wisata-empty {
+  text-align: center;
+  padding: var(--space-16) var(--space-4);
+}
+
+.wisata-empty__icon {
+  font-size: 4rem;
+  display: block;
+  margin-bottom: var(--space-4);
+}
+
+.wisata-empty h3 {
+  font-family: var(--font-heading);
+  font-size: var(--font-size-xl);
+  color: var(--color-text);
+  margin-bottom: var(--space-2);
+}
+
+.wisata-empty p {
+  color: var(--color-text-muted);
+}
+
+@media (max-width: 768px) {
+  .wisata-grid {
+    grid-template-columns: 1fr;
+  }
+}

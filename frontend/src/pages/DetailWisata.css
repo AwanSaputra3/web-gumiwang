@@ -1,0 +1,293 @@
+/* ═══ Detail Wisata Page ═══ */
+.detail-page {
+  padding-top: var(--navbar-height);
+}
+
+/* ── Hero Banner ── */
+.detail-hero {
+  position: relative;
+  min-height: 380px;
+  display: flex;
+  align-items: flex-end;
+  overflow: hidden;
+}
+
+.detail-hero__overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(0,0,0,0.1) 0%, rgba(0,0,0,0.4) 100%);
+}
+
+.detail-hero__content {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  padding-bottom: var(--space-10);
+}
+
+.detail-hero__back {
+  position: absolute;
+  top: var(--space-6);
+  left: var(--container-padding);
+  font-family: var(--font-heading);
+  font-size: var(--font-size-sm);
+  font-weight: 500;
+  color: white;
+  background: rgba(0, 0, 0, 0.2);
+  backdrop-filter: blur(8px);
+  padding: var(--space-2) var(--space-4);
+  border-radius: var(--radius-full);
+  transition: background var(--transition-fast);
+}
+
+.detail-hero__back:hover {
+  background: rgba(0, 0, 0, 0.4);
+}
+
+.detail-hero__info {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+.detail-hero__title {
+  font-family: var(--font-heading);
+  font-size: var(--font-size-4xl);
+  font-weight: 800;
+  color: white;
+  text-shadow: 0 2px 20px rgba(0, 0, 0, 0.2);
+}
+
+.detail-hero__meta {
+  display: flex;
+  gap: var(--space-4);
+  color: rgba(255, 255, 255, 0.9);
+  font-family: var(--font-heading);
+  font-size: var(--font-size-sm);
+}
+
+.detail-hero__emoji {
+  font-size: 5rem;
+  filter: drop-shadow(0 8px 20px rgba(0, 0, 0, 0.15));
+  animation: float 4s ease-in-out infinite;
+}
+
+/* ── Layout ── */
+.detail-layout {
+  display: grid;
+  grid-template-columns: 1fr 360px;
+  gap: var(--space-10);
+  align-items: start;
+}
+
+/* ── Sections ── */
+.detail-section {
+  margin-bottom: var(--space-10);
+}
+
+.detail-section__title {
+  font-family: var(--font-heading);
+  font-size: var(--font-size-2xl);
+  font-weight: 700;
+  color: var(--color-forest-600);
+  margin-bottom: var(--space-5);
+  padding-bottom: var(--space-3);
+  border-bottom: 2px solid var(--color-primary-100);
+}
+
+.detail-section__text {
+  font-size: var(--font-size-base);
+  color: var(--color-text-secondary);
+  line-height: 1.9;
+}
+
+/* ── Gallery ── */
+.detail-gallery__main {
+  height: 320px;
+  border-radius: var(--radius-xl);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-3);
+  margin-bottom: var(--space-4);
+  position: relative;
+  overflow: hidden;
+}
+
+.detail-gallery__emoji {
+  font-size: 5rem;
+  filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.1));
+}
+
+.detail-gallery__label {
+  font-family: var(--font-heading);
+  font-size: var(--font-size-sm);
+  color: rgba(0, 0, 0, 0.5);
+  background: rgba(255, 255, 255, 0.5);
+  padding: var(--space-1) var(--space-3);
+  border-radius: var(--radius-full);
+}
+
+.detail-gallery__thumbs {
+  display: flex;
+  gap: var(--space-3);
+}
+
+.detail-gallery__thumb {
+  width: 72px;
+  height: 56px;
+  border-radius: var(--radius-md);
+  border: 3px solid transparent;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.25rem;
+  transition: all var(--transition-fast);
+}
+
+.detail-gallery__thumb--active {
+  border-color: var(--color-forest-600);
+  opacity: 1 !important;
+}
+
+/* ── Facilities ── */
+.detail-facilities {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: var(--space-3);
+}
+
+.detail-facility {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  padding: var(--space-3) var(--space-4);
+  background: var(--color-primary-50);
+  border-radius: var(--radius-lg);
+  font-size: var(--font-size-sm);
+  color: var(--color-text);
+}
+
+.detail-facility__icon {
+  color: var(--color-primary-600);
+  font-weight: 700;
+  font-size: var(--font-size-base);
+}
+
+/* ── Sidebar Price Card ── */
+.detail-price-card {
+  position: sticky;
+  top: calc(var(--navbar-height) + var(--space-6));
+  padding: var(--space-6);
+}
+
+.detail-price-card__header {
+  text-align: center;
+  padding-bottom: var(--space-5);
+  margin-bottom: var(--space-5);
+  border-bottom: 1px solid var(--color-border-light);
+}
+
+.detail-price-card__label {
+  display: block;
+  font-size: var(--font-size-sm);
+  color: var(--color-text-muted);
+  margin-bottom: var(--space-2);
+}
+
+.detail-price-card__price {
+  display: block;
+  font-family: var(--font-heading);
+  font-size: var(--font-size-3xl);
+  font-weight: 800;
+  color: var(--color-primary-700);
+}
+
+.detail-price-card__unit {
+  display: block;
+  font-size: var(--font-size-xs);
+  color: var(--color-text-muted);
+  margin-top: var(--space-1);
+}
+
+.detail-price-card__info {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  margin-bottom: var(--space-6);
+}
+
+.detail-price-card__row {
+  display: flex;
+  justify-content: space-between;
+  font-size: var(--font-size-sm);
+  color: var(--color-text-secondary);
+}
+
+.detail-price-card__row span:last-child {
+  font-weight: 600;
+  color: var(--color-text);
+}
+
+/* ── Not Found ── */
+.detail-notfound {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 60vh;
+  text-align: center;
+  gap: var(--space-4);
+}
+
+.detail-notfound__icon {
+  font-size: 5rem;
+}
+
+.detail-notfound h2 {
+  font-family: var(--font-heading);
+  font-size: var(--font-size-2xl);
+}
+
+.detail-notfound p {
+  color: var(--color-text-muted);
+  margin-bottom: var(--space-4);
+}
+
+/* ── Responsive ── */
+@media (max-width: 1024px) {
+  .detail-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .detail-price-card {
+    position: static;
+  }
+}
+
+@media (max-width: 768px) {
+  .detail-hero {
+    min-height: 280px;
+  }
+
+  .detail-hero__title {
+    font-size: var(--font-size-2xl);
+  }
+
+  .detail-hero__emoji {
+    font-size: 3rem;
+  }
+
+  .detail-gallery__main {
+    height: 220px;
+  }
+
+  .detail-facilities {
+    grid-template-columns: 1fr;
+  }
+}

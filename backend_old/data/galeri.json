@@ -1,0 +1,44 @@
+[
+  {
+    "id": 1,
+    "judul": "Panen Raya Padi Organik",
+    "kategori": "Pertanian",
+    "tanggal": "15 Agustus 2025",
+    "image": "https://images.unsplash.com/photo-1590682680695-43b964a3ae17?auto=format&fit=crop&w=800&q=80"
+  },
+  {
+    "id": 2,
+    "judul": "Kegiatan Tebar Benih Ikan",
+    "kategori": "Perikanan",
+    "tanggal": "02 September 2025",
+    "image": "https://images.unsplash.com/photo-1524334228333-0f6db392f8a1?auto=format&fit=crop&w=800&q=80"
+  },
+  {
+    "id": 3,
+    "judul": "Pelatihan Olahan Ikan Lele KWT",
+    "kategori": "UMKM",
+    "tanggal": "20 September 2025",
+    "image": "https://images.unsplash.com/photo-1555939594-58d7cb561ad1?auto=format&fit=crop&w=800&q=80"
+  },
+  {
+    "id": 4,
+    "judul": "Pemandangan Sawah Gumiwang",
+    "kategori": "Alam",
+    "tanggal": "10 Oktober 2025",
+    "image": "https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&w=800&q=80"
+  },
+  {
+    "id": 5,
+    "judul": "Kunjungan Wisata Edukasi SD",
+    "kategori": "Edukasi",
+    "tanggal": "05 November 2025",
+    "image": "https://images.unsplash.com/photo-1503676260728-1c00da094a0b?auto=format&fit=crop&w=800&q=80"
+  },
+  {
+    "id": 6,
+    "judul": "Pasar Desa Produk UMKM",
+    "kategori": "Kegiatan",
+    "tanggal": "12 November 2025",
+    "image": "https://images.unsplash.com/photo-1533900298318-6b8da08a523e?auto=format&fit=crop&w=800&q=80"
+  }
+]

@@ -1,0 +1,15 @@
+{
+  "name": "deswita-branjang-backend",
+  "version": "1.0.0",
+  "description": "REST API sederhana untuk Website Desa Wisata Branjang",
+  "main": "server.js",
+  "type": "module",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node --watch server.js"
+  },
+  "dependencies": {
+    "express": "^4.21.0",
+    "cors": "^2.8.5"
+  }
+}

@@ -1,0 +1,72 @@
+[
+  {
+    "id": 1,
+    "nama": "Beras Organik Gumiwang",
+    "kategori": "pertanian",
+    "deskripsi": "Beras organik berkualitas tinggi hasil panen petani lokal Desa Gumiwang. Ditanam tanpa pestisida kimia, menghasilkan nasi yang lebih pulen dan sehat.",
+    "harga": 15000,
+    "hargaFormatted": "Rp 15.000",
+    "satuan": "per kg",
+    "image": "https://images.unsplash.com/photo-1586201375761-83865001e8ac?auto=format&fit=crop&w=800&q=80"
+  },
+  {
+    "id": 2,
+    "nama": "Sayuran Segar Hidroponik",
+    "kategori": "pertanian",
+    "deskripsi": "Berbagai jenis sayuran segar seperti selada, pakcoy, dan kangkung yang ditanam menggunakan sistem hidroponik bersih dan bebas pestisida.",
+    "harga": 5000,
+    "hargaFormatted": "Rp 5.000",
+    "satuan": "per ikat",
+    "image": "https://images.unsplash.com/photo-1518843875459-f738682238a6?auto=format&fit=crop&w=800&q=80"
+  },
+  {
+    "id": 3,
+    "nama": "Bibit Ikan Lele Sangkuriang",
+    "kategori": "perikanan",
+    "deskripsi": "Bibit lele unggulan jenis Sangkuriang yang sehat dan cepat besar. Cocok untuk budidaya kolam terpal maupun kolam tanah.",
+    "harga": 300,
+    "hargaFormatted": "Rp 300",
+    "satuan": "per ekor (ukuran 5-7cm)",
+    "image": "https://images.unsplash.com/photo-1524334228333-0f6db392f8a1?auto=format&fit=crop&w=800&q=80"
+  },
+  {
+    "id": 4,
+    "nama": "Ikan Nila Merah Konsumsi",
+    "kategori": "perikanan",
+    "deskripsi": "Ikan nila merah segar langsung dari kolam pembesaran Desa Gumiwang. Daging tebal, gurih, dan tidak berbau lumpur.",
+    "harga": 32000,
+    "hargaFormatted": "Rp 32.000",
+    "satuan": "per kg",
+    "image": "https://images.unsplash.com/photo-1524334228333-0f6db392f8a1?auto=format&fit=crop&w=800&q=80"
+  },
+  {
+    "id": 5,
+    "nama": "Abon Lele Premium",
+    "kategori": "umkm",
+    "deskripsi": "Olahan inovatif dari ikan lele segar yang diubah menjadi abon gurih dan tahan lama. Kaya protein dan cocok untuk lauk praktis keluarga.",
+    "harga": 25000,
+    "hargaFormatted": "Rp 25.000",
+    "satuan": "per bungkus (100gr)",
+    "image": "https://images.unsplash.com/photo-1621287955519-74e2d31bc40c?auto=format&fit=crop&w=800&q=80"
+  },
+  {
+    "id": 6,
+    "nama": "Keripik Singkong Gurih",
+    "kategori": "umkm",
+    "deskripsi": "Camilan keripik singkong renyah hasil produksi Kelompok Wanita Tani (KWT). Dibuat dari singkong pilihan dengan bumbu rempah alami.",
+    "harga": 10000,
+    "hargaFormatted": "Rp 10.000",
+    "satuan": "per bungkus (250gr)",
+    "image": "https://images.unsplash.com/photo-1621287955519-74e2d31bc40c?auto=format&fit=crop&w=800&q=80"
+  },
+  {
+    "id": 7,
+    "nama": "Nugget Ikan Lele",
+    "kategori": "umkm",
+    "deskripsi": "Nugget sehat berbahan dasar daging ikan lele segar. Disukai anak-anak dan menjadi alternatif lauk bergizi tanpa bahan pengawet.",
+    "harga": 20000,
+    "hargaFormatted": "Rp 20.000",
+    "satuan": "per pack (300gr)",
+    "image": "https://images.unsplash.com/photo-1569691105775-4fc9bd7d58a8?auto=format&fit=crop&w=800&q=80"
+  }
+]

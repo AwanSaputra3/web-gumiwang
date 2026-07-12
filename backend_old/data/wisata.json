@@ -1,0 +1,50 @@
+[
+  {
+    "id": 1,
+    "nama": "Wisata Edukasi Perikanan",
+    "slug": "edukasi-perikanan",
+    "kategori": "edukasi",
+    "deskripsiSingkat": "Belajar budidaya ikan lele dan nila langsung dari peternak sukses Gumiwang.",
+    "deskripsiLengkap": "Wisata Edukasi Perikanan Gumiwang mengajak pengunjung untuk melihat langsung proses budidaya ikan air tawar dari pembibitan hingga panen. Pengunjung, terutama anak-anak sekolah dan mahasiswa, dapat mempraktikkan cara memberi makan ikan, membedakan jenis kelamin induk ikan, hingga belajar teknologi bioflok yang diterapkan oleh peternak desa.",
+    "harga": 15000,
+    "hargaFormatted": "Rp 15.000",
+    "satuanHarga": "per orang",
+    "fasilitas": ["Pemandu", "Pakan Ikan", "Modul Belajar", "Toilet"],
+    "jamOperasional": "08.00 - 15.00 WIB",
+    "rating": 4.8,
+    "featured": true,
+    "image": "https://images.unsplash.com/photo-1524334228333-0f6db392f8a1?auto=format&fit=crop&w=800&q=80"
+  },
+  {
+    "id": 2,
+    "nama": "Agrowisata Sawah Hijau",
+    "slug": "agrowisata-sawah",
+    "kategori": "alam",
+    "deskripsiSingkat": "Menikmati hamparan sawah hijau sambil belajar bertani secara tradisional.",
+    "deskripsiLengkap": "Destinasi ini menawarkan ketenangan dengan pemandangan hamparan sawah yang luas dan udara pedesaan yang sejuk. Selain menikmati pemandangan, pengunjung dapat ikut turun ke sawah untuk belajar menanam padi (tandur), membajak sawah dengan kerbau, atau ikut serta dalam panen padi pada musimnya.",
+    "harga": 10000,
+    "hargaFormatted": "Rp 10.000",
+    "satuanHarga": "per orang",
+    "fasilitas": ["Spot Foto", "Gazebo", "Pemandu", "Area Cuci"],
+    "jamOperasional": "06.00 - 17.00 WIB",
+    "rating": 4.6,
+    "featured": true,
+    "image": "https://images.unsplash.com/photo-1590682680695-43b964a3ae17?auto=format&fit=crop&w=800&q=80"
+  },
+  {
+    "id": 3,
+    "nama": "Workshop Pengolahan Lele",
+    "slug": "workshop-olahan-lele",
+    "kategori": "edukasi",
+    "deskripsiSingkat": "Pelatihan membuat aneka olahan pangan bernilai jual dari ikan lele.",
+    "deskripsiLengkap": "Bersama ibu-ibu PKK dan Kelompok Wanita Tani, pengunjung diajak untuk praktik langsung membuat aneka olahan berbahan dasar lele seperti abon lele, nugget lele, hingga kerupuk lele. Hasil praktik bisa dibawa pulang sebagai oleh-oleh.",
+    "harga": 35000,
+    "hargaFormatted": "Rp 35.000",
+    "satuanHarga": "per orang (termasuk hasil olahan)",
+    "fasilitas": ["Bahan Baku", "Alat Masak", "Instruktur", "Ruang Bersih"],
+    "jamOperasional": "09.00 - 14.00 WIB (Sabtu/Minggu)",
+    "rating": 4.7,
+    "featured": false,
+    "image": "https://images.unsplash.com/photo-1582285516943-34e8be3426cb?auto=format&fit=crop&w=800&q=80"
+  }
+]

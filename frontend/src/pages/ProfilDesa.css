@@ -1,0 +1,178 @@
+/* ═══ Profil Desa Page ═══ */
+
+/* ── Intro & Sejarah ── */
+.profil-intro {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-12);
+  align-items: center;
+  text-align: center;
+}
+
+.profil-intro__text {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 800px;
+}
+
+.profil-intro__desc {
+  font-size: var(--font-size-lg);
+  color: var(--color-text-secondary);
+  line-height: 1.8;
+  margin-bottom: var(--space-6);
+}
+
+.profil-sejarah {
+  background: var(--color-gray-50);
+  padding: var(--space-6);
+  border-radius: var(--radius-xl);
+  border-top: 4px solid var(--color-primary-500);
+}
+
+.profil-sejarah__icon {
+  font-size: 2rem;
+  margin-bottom: var(--space-3);
+}
+
+.profil-sejarah p {
+  font-size: var(--font-size-base);
+  color: var(--color-text-secondary);
+  line-height: 1.7;
+  font-style: italic;
+}
+
+/* ── Demografi ── */
+.profil-demografi {
+  width: 100%;
+  max-width: 800px;
+}
+
+.profil-demografi__card {
+  background: var(--gradient-hero);
+  color: white;
+  padding: var(--space-8);
+  border-radius: var(--radius-2xl);
+  box-shadow: var(--shadow-2xl);
+}
+
+.profil-demografi__card h3 {
+  font-family: var(--font-heading);
+  font-size: var(--font-size-xl);
+  font-weight: 700;
+  margin-bottom: var(--space-6);
+  color: white;
+  text-align: center;
+}
+
+.demografi-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: var(--space-4);
+}
+
+.demografi-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: var(--space-3);
+  padding: var(--space-5);
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(10px);
+  border-radius: var(--radius-lg);
+}
+
+.demografi-icon {
+  font-size: 2rem;
+  width: 56px;
+  height: 56px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: var(--radius-md);
+  flex-shrink: 0;
+}
+
+.demografi-item strong {
+  display: block;
+  font-family: var(--font-heading);
+  font-size: var(--font-size-lg);
+  font-weight: 700;
+}
+
+.demografi-item span {
+  font-size: var(--font-size-sm);
+  opacity: 0.85;
+}
+
+/* ── Visi Misi ── */
+.profil-visimisi {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-8);
+  max-width: 800px;
+  margin-inline: auto;
+}
+
+.profil-visi,
+.profil-misi {
+  padding: var(--space-8);
+  text-align: center;
+  background: white;
+  width: 100%;
+}
+
+.profil-visi__icon,
+.profil-misi__icon {
+  font-size: 3rem;
+  margin-bottom: var(--space-4);
+}
+
+.profil-visi h3,
+.profil-misi h3 {
+  font-family: var(--font-heading);
+  font-size: var(--font-size-2xl);
+  font-weight: 700;
+  color: var(--color-forest-700);
+  margin-bottom: var(--space-4);
+}
+
+.profil-visi p {
+  font-size: var(--font-size-lg);
+  color: var(--color-text-secondary);
+  line-height: 1.8;
+  font-style: italic;
+  font-weight: 500;
+}
+
+.profil-misi__list {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+  padding: 0;
+  list-style-type: decimal;
+  list-style-position: inside;
+}
+
+.profil-misi__list li {
+  font-size: var(--font-size-base);
+  color: var(--color-text-secondary);
+  line-height: 1.6;
+}
+
+/* ── Responsive ── */
+@media (max-width: 992px) {
+  .profil-intro {
+    gap: var(--space-8);
+  }
+}
+
+@media (max-width: 768px) {
+  .demografi-list {
+    grid-template-columns: 1fr;
+  }
+}
