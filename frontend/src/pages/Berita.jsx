@@ -28,6 +28,7 @@ function Berita() {
         subtitle="Kabar Desa"
         title="Berita & Artikel"
         description="Ikuti perkembangan terbaru, pengumuman, dan artikel informatif dari Desa Gumiwang."
+        image="https://images.unsplash.com/photo-1504711434969-e33886168f5c?auto=format&fit=crop&w=1920&q=80"
       />
 
       <section className="section bg-light">

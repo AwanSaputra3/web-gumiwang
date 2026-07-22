@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import HeroSection from '../components/HeroSection.jsx';
 import WisataCard from '../components/WisataCard.jsx';
 import './Beranda.css';
 
@@ -47,27 +48,12 @@ function Beranda() {
   return (
     <div className="page-beranda">
       {/* 1. Hero Section - Left Aligned with Pill Search */}
-      <section className="hero-new hero-improvised">
-        <div className="hero-new__bg">
-          <img src="https://images.unsplash.com/photo-1590682680695-43b964a3ae17?auto=format&fit=crop&w=1920&q=80" alt="Rice Terraces" />
-          <div className="hero-new__overlay gradient-overlay"></div>
-        </div>
-        <div className="container hero-container-alt">
-          <div className="hero-content-left">
-            <h1 className="hero-new__title">Eksplorasi<br/>Pesona Alam</h1>
-            <p className="hero-new__subtitle">Selamat Datang di {desaName}, tempat dimana tradisi dan alam menyatu harmoni.</p>
-            
-            {/* Pill Search Bar */}
-            <div className="hero-search-pill glass-card">
-              <div className="search-pill-field">
-                <span className="icon">📍</span>
-                <span>Cari Destinasi...</span>
-              </div>
-              <button className="btn btn-brand search-btn-round">Cari</button>
-            </div>
-          </div>
-        </div>
-      </section>
+      <HeroSection
+        title={<>Eksplorasi<br/>Pesona Alam</>}
+        description={`Selamat Datang di ${desaName}, tempat dimana tradisi dan alam menyatu harmoni.`}
+        showSearch={true}
+        image="https://images.unsplash.com/photo-1590682680695-43b964a3ae17?auto=format&fit=crop&w=1920&q=80"
+      />
 
       {/* 2. Destinasi - Featured Grid */}
       <section className="section bg-neutral" style={{ paddingTop: '60px' }}>

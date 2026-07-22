@@ -91,10 +91,12 @@
   border-radius: var(--radius-lg);
   transition: all var(--transition-fast);
   color: rgba(255, 255, 255, 0.85);
+  text-shadow: 1px 1px 5px rgba(0,0,0,0.8), 0 0 12px rgba(0,0,0,0.6);
 }
 
 .navbar--scrolled .navbar__link {
   color: var(--color-text-secondary);
+  text-shadow: none;
 }
 
 .navbar__link:hover {
@@ -189,6 +191,7 @@
     font-size: var(--font-size-base);
     width: 100%;
     padding: var(--space-3) var(--space-4);
+    text-shadow: none;
   }
 
   .navbar__menu .navbar__link:hover {

@@ -28,6 +28,7 @@ function Galeri() {
         subtitle="Momen & Kegiatan"
         title="Galeri Desa"
         description="Dokumentasi aktivitas pertanian, perikanan, dan kehidupan bermasyarakat di Desa Gumiwang."
+        image="https://images.unsplash.com/photo-1596422846543-75c6fc197f07?auto=format&fit=crop&w=1920&q=80"
       />
 
       <section className="section">

@@ -202,6 +202,31 @@ h1, h2, h3, h4, h5, h6 {
   margin-bottom: var(--space-12);
 }
 
+.section-header-alt {
+  margin-bottom: var(--space-10);
+}
+
+.section-header-alt p {
+  color: var(--color-text-secondary);
+  font-size: 1.1rem;
+}
+
+.main-title {
+  font-family: var(--font-heading);
+  font-size: 2.5rem;
+  font-weight: 800;
+  color: #333;
+}
+
+.cursive-label {
+  font-family: var(--font-cursive);
+  font-size: 2rem;
+  color: var(--color-brand-red);
+  display: inline-block;
+  transform: rotate(-5deg);
+  margin-bottom: 5px;
+}
+
 .section-label {
   display: inline-block;
   font-family: var(--font-heading);

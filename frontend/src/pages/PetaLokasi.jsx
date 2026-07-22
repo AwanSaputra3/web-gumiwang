@@ -12,6 +12,7 @@ function PetaLokasi() {
         subtitle="Petunjuk Arah"
         title="Peta Lokasi Gumiwang"
         description="Temukan lokasi Balai Desa Gumiwang dan spot-spot penting lainnya di wilayah kami melalui Google Maps terintegrasi."
+        image="https://images.unsplash.com/photo-1524661135-423995f22d0b?auto=format&fit=crop&w=1920&q=80"
       />
 
       <section className="section bg-light" style={{ paddingBottom: '0' }}>

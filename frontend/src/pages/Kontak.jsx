@@ -28,6 +28,7 @@ function Kontak() {
         subtitle="Hubungi Kami"
         title="Kontak & Informasi"
         description="Jangan ragu untuk menghubungi kami. Kami siap membantu Anda terkait informasi komoditas, wisata, maupun layanan desa lainnya."
+        image="https://images.unsplash.com/photo-1596524430615-b46475ddff6e?auto=format&fit=crop&w=1920&q=80"
       />
 
       <section className="section">
@@ -76,7 +77,7 @@ function Kontak() {
 
                 <div className="kontak-socials__grid">
                   <a
-                    href={`https://instagram.com/${desa?.kontak?.instagram?.replace('@', '')}`}
+                    href="https://www.instagram.com/krida_desagumiwang/"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="kontak-social glass-card"
@@ -86,7 +87,7 @@ function Kontak() {
                     </div>
                     <div className="kontak-social__info">
                       <strong>Instagram</strong>
-                      <span>{desa?.kontak?.instagram}</span>
+                      <span>@krida_desagumiwang</span>
                     </div>
                   </a>
 

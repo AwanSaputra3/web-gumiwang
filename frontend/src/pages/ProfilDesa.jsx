@@ -35,7 +35,8 @@ function ProfilDesa() {
         compact
         subtitle="Mengenal Lebih Dekat"
         title="Profil Desa Gumiwang"
-        description={`${desa?.kecamatan}, ${desa?.kabupaten}, ${desa?.provinsi}`}
+        description={desa?.alamatLengkap || "Desa Gumiwang, Banjarnegara, Jawa Tengah"}
+        image="https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&w=1920&q=80"
       />
 
       {/* Intro & Sejarah */}
@@ -43,8 +44,8 @@ function ProfilDesa() {
         <div className="container">
           <div className="profil-intro fade-in">
             <div className="profil-intro__text">
-              <span className="section-label">Tentang Kami</span>
-              <h2 className="section-title">Sejarah & Perkembangan</h2>
+              <span className="cursive-label" style={{display: 'block', marginBottom: '10px', transform: 'none'}}>Tentang Kami</span>
+              <h2 className="main-title" style={{marginBottom: '20px'}}>Sejarah & Perkembangan</h2>
               <p className="profil-intro__desc">{desa?.deskripsi}</p>
               <div className="profil-sejarah">
                 <div className="profil-sejarah__icon">📜</div>
@@ -95,9 +96,9 @@ function ProfilDesa() {
       {/* Visi Misi */}
       <section className="section section-alt">
         <div className="container">
-          <div className="section-header">
-            <span className="section-label">Arah Pembangunan</span>
-            <h2 className="section-title">Visi & Misi</h2>
+          <div className="section-header-alt" style={{ textAlign: 'center' }}>
+            <span className="cursive-label" style={{display: 'block', marginBottom: '10px', transform: 'none'}}>Arah Pembangunan</span>
+            <h2 className="main-title">Visi & Misi</h2>
             <p className="section-subtitle">
               Tujuan dan langkah konkrit yang diambil Pemerintah Desa Gumiwang.
             </p>

@@ -59,6 +59,7 @@ function Komoditas() {
         subtitle="Hasil Bumi & Kreasi Desa"
         title="Komoditas Unggulan"
         description="Jelajahi produk pertanian organik, perikanan budidaya, dan aneka olahan UMKM dari Desa Gumiwang."
+        image="https://images.unsplash.com/photo-1542838132-92c53300491e?auto=format&fit=crop&w=1920&q=80"
       />
 
       <section className="section bg-light">

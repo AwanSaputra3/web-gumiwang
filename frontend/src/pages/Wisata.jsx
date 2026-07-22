@@ -53,6 +53,7 @@ function Wisata() {
         subtitle="Eksplorasi Destinasi"
         title="Wisata Desa Gumiwang"
         description="Temukan beragam destinasi wisata alam, budaya, dan edukasi yang menakjubkan."
+        image="https://images.unsplash.com/photo-1518548419970-58e3b4079ab2?auto=format&fit=crop&w=1920&q=80"
       />
 
       <section className="section">
