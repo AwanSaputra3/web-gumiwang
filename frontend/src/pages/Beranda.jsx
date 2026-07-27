@@ -103,16 +103,64 @@ function Beranda() {
         </div>
       </section>
 
-      {/* 3. Promo Section - Full width banner */}
-      <section className="section promo-banner">
-        <div className="promo-banner-bg" style={{backgroundImage: 'url(https://images.unsplash.com/photo-1533900298318-6b8da08a523e?auto=format&fit=crop&w=1920&q=80)'}}></div>
-        <div className="promo-banner-overlay"></div>
-        <div className="container promo-banner-container">
-          <div className="promo-glass-card glass-card">
-            <div className="promo-tag">Eksklusif</div>
-            <h2 className="promo-title-alt">Diskon 30% Paket Petualangan</h2>
-            <p>Rencanakan liburan akhir pekan Anda bersama keluarga di Deswita{desaName}. Promo berlaku hingga akhir bulan.</p>
-            <Link to="/wisata" className="btn btn-brand btn-lg" style={{marginTop: '1rem'}}>Klaim Promo</Link>
+      {/* 3. Keunggulan & Statistik Desa Wisata */}
+      <section className="section keunggulan-section bg-light">
+        <div className="container">
+          <div className="section-header-alt text-center" style={{ marginBottom: '40px' }}>
+            <span className="cursive-label" style={{ display: 'block', marginBottom: '10px', transform: 'none' }}>Keunggulan Kami</span>
+            <h2 className="main-title">Mengapa Berkunjung ke Deswita {desaName}?</h2>
+            <p className="section-subtitle" style={{ color: 'var(--color-text-muted)', marginTop: '8px' }}>
+              Nikmati pengalaman berwisata otentik dengan beragam fasilitas dan keasrian alam yang memikat.
+            </p>
+          </div>
+
+          <div className="keunggulan-grid">
+            <div className="keunggulan-card">
+              <div className="keunggulan-icon">🌱</div>
+              <h3>Alam Asri & Sejuk</h3>
+              <p>Dikelilingi pemandangan persawahan berundak dan udara pedesaan yang bebas dari polusi kota.</p>
+            </div>
+
+            <div className="keunggulan-card">
+              <div className="keunggulan-icon">🎭</div>
+              <h3>Kebudayaan Otentik</h3>
+              <p>Rasakan hangatnya kearifan lokal, pertunjukan seni tradisional, serta keramahan warga desa.</p>
+            </div>
+
+            <div className="keunggulan-card">
+              <div className="keunggulan-icon">🐟</div>
+              <h3>Eduwisata Komprehensif</h3>
+              <p>Program edukasi perikanan bioflok, pertanian hidroponik, dan olahan pangan khas untuk segala usia.</p>
+            </div>
+
+            <div className="keunggulan-card">
+              <div className="keunggulan-icon">🏡</div>
+              <h3>Fasilitas Nyaman</h3>
+              <p>Tersedia homestay warga yang bersih, area parkir luas, tempat ibadah, serta kuliner lokal lezat.</p>
+            </div>
+          </div>
+
+          {/* Counter Stats Bar */}
+          <div className="stats-banner-container">
+            <div className="stats-item">
+              <div className="stats-number">15+</div>
+              <div className="stats-label">Spot Wisata</div>
+            </div>
+            <div className="stats-divider"></div>
+            <div className="stats-item">
+              <div className="stats-number">1.2k+</div>
+              <div className="stats-label">Pengunjung / Bulan</div>
+            </div>
+            <div className="stats-divider"></div>
+            <div className="stats-item">
+              <div className="stats-number">25+</div>
+              <div className="stats-label">UMKM Lokal</div>
+            </div>
+            <div className="stats-divider"></div>
+            <div className="stats-item">
+              <div className="stats-number">100%</div>
+              <div className="stats-label">Ramah Lingkungan</div>
+            </div>
           </div>
         </div>
       </section>
