@@ -49,7 +49,15 @@ function ProfilDesa() {
               <p className="profil-intro__desc">{desa?.deskripsi}</p>
               <div className="profil-sejarah">
                 <div className="profil-sejarah__icon">📜</div>
-                <p>{desa?.sejarah}</p>
+                {Array.isArray(desa?.sejarah) ? (
+                  desa.sejarah.map((para, idx) => (
+                    <p key={idx} style={{ marginBottom: idx < desa.sejarah.length - 1 ? '1rem' : 0 }}>
+                      {para}
+                    </p>
+                  ))
+                ) : (
+                  <p>{desa?.sejarah}</p>
+                )}
               </div>
             </div>
 
