@@ -103,42 +103,6 @@ function ProfilDesa() {
               </div>
             </div>
 
-            {/* Demografi Card */}
-            <div className="profil-demografi">
-              <div className="profil-demografi__card glass-card">
-                <h3>Data Demografi</h3>
-                <div className="demografi-list">
-                  <div className="demografi-item">
-                    <span className="demografi-icon">📏</span>
-                    <div>
-                      <strong>{desa?.demografi?.luasWilayah}</strong>
-                      <span>Luas Wilayah</span>
-                    </div>
-                  </div>
-                  <div className="demografi-item">
-                    <span className="demografi-icon">👥</span>
-                    <div>
-                      <strong>{desa?.demografi?.jumlahPenduduk}</strong>
-                      <span>Jumlah Penduduk</span>
-                    </div>
-                  </div>
-                  <div className="demografi-item">
-                    <span className="demografi-icon">🏠</span>
-                    <div>
-                      <strong>{desa?.demografi?.jumlahKK}</strong>
-                      <span>Kepala Keluarga</span>
-                    </div>
-                  </div>
-                  <div className="demografi-item">
-                    <span className="demografi-icon">👨‍🌾</span>
-                    <div>
-                      <strong>{desa?.demografi?.pekerjaanUtama}</strong>
-                      <span>Mata Pencaharian Utama</span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
           </div>
         </div>
       </section>
