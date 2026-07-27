@@ -4,70 +4,61 @@
 .profil-intro {
   display: flex;
   flex-direction: column;
-  gap: var(--space-12);
   align-items: center;
-  text-align: center;
+  justify-content: center;
+  width: 100%;
+  margin: 0 auto;
 }
 
 .profil-intro__text {
   display: flex;
   flex-direction: column;
   align-items: center;
-  max-width: 800px;
+  width: 100%;
+  max-width: 900px;
+  margin: 0 auto;
+  text-align: center;
 }
 
 .profil-intro__desc {
   font-size: var(--font-size-lg);
   color: var(--color-text-secondary);
   line-height: 1.8;
-  margin-bottom: var(--space-6);
+  margin-bottom: var(--space-8);
+  max-width: 750px;
 }
 
 .profil-sejarah {
-  background: #ffffff;
-  padding: 32px 36px;
-  border-radius: 20px;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.06);
-  border: 1px solid rgba(0, 0, 0, 0.06);
-  border-left: 5px solid #22c55e;
-  text-align: left;
+  background: white;
+  padding: var(--space-8);
+  border-radius: var(--radius-2xl, 20px);
+  border-top: 4px solid var(--color-primary-500, #10b981);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+  border-left: 1px solid rgba(0, 0, 0, 0.05);
+  border-right: 1px solid rgba(0, 0, 0, 0.05);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
   width: 100%;
-  margin-top: 10px;
-}
-
-.profil-sejarah__header {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  margin-bottom: 20px;
-  padding-bottom: 16px;
-  border-bottom: 1px solid #f1f5f9;
+  max-width: 850px;
+  margin: 0 auto;
+  text-align: center;
 }
 
 .profil-sejarah__icon {
-  font-size: 1.8rem;
-  line-height: 1;
-}
-
-.profil-sejarah__header h3 {
-  font-family: var(--font-heading);
-  font-size: 1.3rem;
-  font-weight: 700;
-  color: #1e293b;
-  margin: 0;
+  font-size: 2.5rem;
+  margin-bottom: var(--space-4);
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .profil-sejarah p {
-  font-size: 1.025rem;
-  color: #334155;
+  font-size: var(--font-size-base, 1rem);
+  color: var(--color-text-secondary, #475569);
   line-height: 1.8;
-  font-style: normal;
-  text-align: justify;
-  margin-bottom: 18px;
-}
-
-.profil-sejarah p:last-child {
-  margin-bottom: 0;
+  font-style: italic;
+  margin: 0 auto;
+  max-width: 780px;
+  text-align: center;
 }
 
 /* ── Demografi ── */
