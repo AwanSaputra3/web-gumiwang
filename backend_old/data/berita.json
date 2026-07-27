@@ -28,5 +28,35 @@
     "tanggal": "05 Desember 2025",
     "kategori": "UMKM",
     "image": "https://images.unsplash.com/photo-1582285516943-34e8be3426cb?auto=format&fit=crop&w=800&q=80"
+  },
+  {
+    "id": 4,
+    "judul": "Peresmian Destinasi Wisata Tubing Sungai Gumiwang",
+    "slug": "peresmian-wisata-tubing",
+    "ringkasan": "Pemerintah Desa Gumiwang meresmikan wahana wisata baru susur sungai tubing yang menyajikan wahana petualangan alam seru.",
+    "isiLengkap": "Pemerintah Desa Gumiwang resmi membuka destinasi wisata anyar berupa Tubing Sungai Gumiwang. Peresmian dihadiri oleh Pokdarwis desa dan perwakilan Dinas Pariwisata Banjarnegara. Wahana ini menyuguhkan petualangan air menyusuri sungai jernih sepanjang 2 km dengan peralatan keselamatan standar internasional dan instruktur bersertifikasi.",
+    "tanggal": "15 Januari 2026",
+    "kategori": "Pariwisata",
+    "image": "https://images.unsplash.com/photo-1544551763-46a013bb70d5?auto=format&fit=crop&w=800&q=80"
+  },
+  {
+    "id": 5,
+    "judul": "Desa Gumiwang Raih Penghargaan Desa Digital Terbaik",
+    "slug": "gumiwang-raih-penghargaan-desa-digital",
+    "ringkasan": "Inovasi sistem informasi wisata dan pemasaran komoditas digital membawa Desa Gumiwang memenangkan penghargaan tingkat kabupaten.",
+    "isiLengkap": "Desa Gumiwang dianugerahi penghargaan Desa Digital Terbaik tingkat Kabupaten Banjarnegara. Penghargaan ini diraih berkat integrasi platform digital untuk promosi tempat wisata, edukasi perikanan, serta katalog UMKM online yang memudahkan wisatawan dan pembeli mengakses informasi desa secara transparan dan cepat.",
+    "tanggal": "02 Februari 2026",
+    "kategori": "Prestasi",
+    "image": "https://images.unsplash.com/photo-1533900298318-6b8da08a523e?auto=format&fit=crop&w=800&q=80"
+  },
+  {
+    "id": 6,
+    "judul": "Peluncuran Program Usaha Ternak Bioflok Ekspor",
+    "slug": "peluncuran-ternak-bioflok-ekspor",
+    "ringkasan": "Kolaborasi kelompok peternak lokal dan akademisi meluncurkan standarisasi budidaya lele bioflok berskala mutu tinggi.",
+    "isiLengkap": "Pemerintah Desa Gumiwang bekerja sama dengan universitas negeri meresmikan fasilitas pendampingan teknologi bioflok berstandar ekspor. Melalui kolaborasi ini, kualitas pakan, sirkulasi air, dan kesehatan lele dipantau secara digital sehingga produktivitas meningkat hingga 40% dan membuka peluang rantai pasok ke supermarket nasional.",
+    "tanggal": "20 Februari 2026",
+    "kategori": "Perikanan",
+    "image": "https://images.unsplash.com/photo-1524334228333-0f6db392f8a1?auto=format&fit=crop&w=800&q=80"
   }
 ]

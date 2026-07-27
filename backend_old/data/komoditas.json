@@ -68,5 +68,55 @@
     "hargaFormatted": "Rp 20.000",
     "satuan": "per pack (300gr)",
     "image": "https://images.unsplash.com/photo-1569691105775-4fc9bd7d58a8?auto=format&fit=crop&w=800&q=80"
+  },
+  {
+    "id": 8,
+    "nama": "Kerajinan Anyaman Bambu",
+    "kategori": "umkm",
+    "deskripsi": "Produk anyaman bambu bernilai seni tinggi buatan pengrajin desa, seperti besek hias, tempat buah, dan tudung saji ramah lingkungan.",
+    "harga": 35000,
+    "hargaFormatted": "Rp 35.000",
+    "satuan": "per buah",
+    "image": "https://images.unsplash.com/photo-1513519245088-0e12902e5a38?auto=format&fit=crop&w=800&q=80"
+  },
+  {
+    "id": 9,
+    "nama": "Keripik Tempe Mendoan Khas",
+    "kategori": "umkm",
+    "deskripsi": "Tempe krispi khas Banjarnegara dengan bumbu ketumbar dan daun bawang segar. Renyah dan lezat sebagai teman makan.",
+    "harga": 12000,
+    "hargaFormatted": "Rp 12.000",
+    "satuan": "per bungkus (200gr)",
+    "image": "https://images.unsplash.com/photo-1601050690597-df0568f70950?auto=format&fit=crop&w=800&q=80"
+  },
+  {
+    "id": 10,
+    "nama": "Ikan Gurame Segar",
+    "kategori": "perikanan",
+    "deskripsi": "Ikan gurame hasil budidaya air bersih pedesaan. Daging manis dan tebal, sangat disukai untuk olahan bakar atau goreng.",
+    "harga": 45000,
+    "hargaFormatted": "Rp 45.000",
+    "satuan": "per kg",
+    "image": "https://images.unsplash.com/photo-1534604973900-c43ab4c2e0ab?auto=format&fit=crop&w=800&q=80"
+  },
+  {
+    "id": 11,
+    "nama": "Pupuk Organik Bio-Kompos",
+    "kategori": "pertanian",
+    "deskripsi": "Pupuk komposer organik dari limbah jerami dan kotoran ternak desa. Menyuburkan tanah dan menjaga mikroorganisme alami.",
+    "harga": 20000,
+    "hargaFormatted": "Rp 20.000",
+    "satuan": "per karung (10kg)",
+    "image": "https://images.unsplash.com/photo-1416879595882-3373a0480b5b?auto=format&fit=crop&w=800&q=80"
+  },
+  {
+    "id": 12,
+    "nama": "Sirup Jahe Merah Herbal",
+    "kategori": "umkm",
+    "deskripsi": "Minuman olahan jahe merah alami hasil tanaman warga. Memberikan rasa hangat, menyehatkan tubuh dan meningkatkan imun.",
+    "harga": 18000,
+    "hargaFormatted": "Rp 18.000",
+    "satuan": "per botol (250ml)",
+    "image": "https://images.unsplash.com/photo-1546548970-71785318a17b?auto=format&fit=crop&w=800&q=80"
   }
 ]
