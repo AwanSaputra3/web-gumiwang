@@ -2,18 +2,34 @@ import { useState, useEffect } from 'react';
 import HeroSection from '../components/HeroSection.jsx';
 import './Kontak.css';
 
+const DEFAULT_DESA_KONTAK = {
+  nama: "Desa Gumiwang",
+  alamatLengkap: "Desa Gumiwang, Kecamatan Purwanegara, Kabupaten Banjarnegara, Jawa Tengah 53472",
+  kontak: {
+    whatsapp: "6281234567890",
+    email: "pemdes@gumiwang.desa.id",
+    instagram: "@desagumiwang",
+    facebook: "Pemdes Gumiwang",
+    alamat: "Kantor Kepala Desa Gumiwang, Jl. Raya Gumiwang No.1, Purwanegara, Banjarnegara 53472"
+  }
+};
+
 function Kontak() {
-  const [desa, setDesa] = useState(null);
+  const [desa, setDesa] = useState(DEFAULT_DESA_KONTAK);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     async function fetchDesa() {
       try {
         const res = await fetch('/api/desa');
-        const data = await res.json();
-        setDesa(data.data || null);
+        if (res.ok) {
+          const data = await res.json();
+          if (data.data) {
+            setDesa(data.data);
+          }
+        }
       } catch (err) {
-        console.error('Error:', err);
+        console.error('Error fetching desa:', err);
       } finally {
         setLoading(false);
       }

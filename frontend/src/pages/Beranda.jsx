@@ -4,10 +4,92 @@ import HeroSection from '../components/HeroSection.jsx';
 import WisataCard from '../components/WisataCard.jsx';
 import './Beranda.css';
 
+const DEFAULT_WISATA_HOME = [
+  {
+    id: 1,
+    nama: "Wisata Edukasi Perikanan",
+    slug: "edukasi-perikanan",
+    kategori: "edukasi",
+    deskripsiSingkat: "Belajar budidaya ikan lele dan nila langsung dari peternak sukses Gumiwang.",
+    harga: 15000,
+    hargaFormatted: "Rp 15.000",
+    satuanHarga: "per orang",
+    rating: 4.8,
+    featured: true,
+    image: "https://images.unsplash.com/photo-1524334228333-0f6db392f8a1?auto=format&fit=crop&w=800&q=80"
+  },
+  {
+    id: 2,
+    nama: "Agrowisata Sawah Hijau",
+    slug: "agrowisata-sawah",
+    kategori: "alam",
+    deskripsiSingkat: "Menikmati hamparan sawah hijau sambil belajar bertani secara tradisional.",
+    harga: 10000,
+    hargaFormatted: "Rp 10.000",
+    satuanHarga: "per orang",
+    rating: 4.6,
+    featured: true,
+    image: "https://images.unsplash.com/photo-1590682680695-43b964a3ae17?auto=format&fit=crop&w=800&q=80"
+  },
+  {
+    id: 4,
+    nama: "Susur Sungai & Tubing Gumiwang",
+    slug: "tubing-sungai-gumiwang",
+    kategori: "petualangan",
+    deskripsiSingkat: "Petualangan seru menyusuri aliran sungai jernih berbalut pemandangan perbukitan.",
+    harga: 40000,
+    hargaFormatted: "Rp 40.000",
+    satuanHarga: "per orang",
+    rating: 4.9,
+    featured: true,
+    image: "https://images.unsplash.com/photo-1544551763-46a013bb70d5?auto=format&fit=crop&w=800&q=80"
+  },
+  {
+    id: 5,
+    nama: "Camping Ground Bukit Gumiwang",
+    slug: "camping-ground-bukit",
+    kategori: "alam",
+    deskripsiSingkat: "Berkemah di atas bukit dengan panorama sunset dan city light malam hari.",
+    harga: 25000,
+    hargaFormatted: "Rp 25.000",
+    satuanHarga: "per orang / malam",
+    rating: 4.7,
+    featured: true,
+    image: "https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&w=800&q=80"
+  }
+];
+
+const DEFAULT_BERITA_HOME = [
+  {
+    id: 1,
+    judul: "Panen Raya Lele Sukses Digelar",
+    ringkasan: "Kelompok pembudidaya ikan Desa Gumiwang berhasil melakukan panen raya lele dengan total hasil mencapai 5 ton.",
+    tanggal: "20 Oktober 2025",
+    kategori: "Perikanan",
+    image: "https://images.unsplash.com/photo-1524334228333-0f6db392f8a1?auto=format&fit=crop&w=800&q=80"
+  },
+  {
+    id: 2,
+    judul: "Desa Gumiwang Kembangkan Beras Organik",
+    ringkasan: "Gabungan kelompok tani mulai menerapkan sistem pertanian organik untuk tanaman padi.",
+    tanggal: "12 November 2025",
+    kategori: "Pertanian",
+    image: "https://images.unsplash.com/photo-1590682680695-43b964a3ae17?auto=format&fit=crop&w=800&q=80"
+  },
+  {
+    id: 3,
+    judul: "Pelatihan Olahan Hasil Ikan untuk KWT",
+    ringkasan: "Kelompok Wanita Tani (KWT) mendapatkan pelatihan pembuatan abon dan nugget lele.",
+    tanggal: "05 Desember 2025",
+    kategori: "UMKM",
+    image: "https://images.unsplash.com/photo-1582285516943-34e8be3426cb?auto=format&fit=crop&w=800&q=80"
+  }
+];
+
 function Beranda() {
-  const [desa, setDesa] = useState(null);
-  const [wisata, setWisata] = useState([]);
-  const [berita, setBerita] = useState([]);
+  const [desa, setDesa] = useState({ nama: "Desa Gumiwang" });
+  const [wisata, setWisata] = useState(DEFAULT_WISATA_HOME);
+  const [berita, setBerita] = useState(DEFAULT_BERITA_HOME);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
@@ -19,13 +101,18 @@ function Beranda() {
           fetch('/api/berita')
         ]);
 
-        const desaData = await desaRes.json();
-        const wisataData = await wisataRes.json();
-        const beritaData = await beritaRes.json();
-
-        setDesa(desaData.data);
-        setWisata(wisataData.data); // Use all data for carousel
-        setBerita(beritaData.data.slice(0, 3));
+        if (desaRes.ok) {
+          const desaData = await desaRes.json();
+          if (desaData.data) setDesa(desaData.data);
+        }
+        if (wisataRes.ok) {
+          const wisataData = await wisataRes.json();
+          if (wisataData.data && wisataData.data.length > 0) setWisata(wisataData.data);
+        }
+        if (beritaRes.ok) {
+          const beritaData = await beritaRes.json();
+          if (beritaData.data && beritaData.data.length > 0) setBerita(beritaData.data.slice(0, 3));
+        }
       } catch (err) {
         console.error('Error fetching data:', err);
       } finally {
