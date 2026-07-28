@@ -2,5 +2,5 @@
 !private/
 !public/
 !json_data/
+!json_data/*
 !.gitignore
-
