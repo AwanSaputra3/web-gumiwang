@@ -1,8 +1,18 @@
-import { useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import HeroSection from '../components/HeroSection.jsx';
 import WisataCard from '../components/WisataCard.jsx';
 import './Beranda.css';
+
+const getDirectImageUrl = (url) => {
+  if (!url) return url;
+  const driveRegex = /drive\.google\.com\/file\/d\/([a-zA-Z0-9_-]+)/;
+  const match = url.match(driveRegex);
+  if (match && match[1]) {
+    return `https://drive.google.com/thumbnail?id=${match[1]}&sz=w1000`;
+  }
+  return url;
+};
 
 const DEFAULT_WISATA_HOME = [
   {
@@ -90,15 +100,17 @@ function Beranda() {
   const [desa, setDesa] = useState({ nama: "Desa Gumiwang" });
   const [wisata, setWisata] = useState(DEFAULT_WISATA_HOME);
   const [berita, setBerita] = useState(DEFAULT_BERITA_HOME);
+  const [homeData, setHomeData] = useState(null);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     async function fetchData() {
       try {
-        const [desaRes, wisataRes, beritaRes] = await Promise.all([
+        const [desaRes, wisataRes, beritaRes, settingsRes] = await Promise.all([
           fetch('/api/desa'),
           fetch('/api/wisata/featured'),
-          fetch('/api/berita')
+          fetch('/api/berita'),
+          fetch('/api/settings')
         ]);
 
         if (desaRes.ok) {
@@ -112,6 +124,19 @@ function Beranda() {
         if (beritaRes.ok) {
           const beritaData = await beritaRes.json();
           if (beritaData.data && beritaData.data.length > 0) setBerita(beritaData.data.slice(0, 3));
+        }
+        if (settingsRes.ok) {
+          const settingsData = await settingsRes.json();
+          if (settingsData.data) {
+            const homeSetting = settingsData.data.find(s => s.key === 'home');
+            if (homeSetting && homeSetting.value) {
+              try {
+                setHomeData(JSON.parse(homeSetting.value));
+              } catch (e) {
+                console.error("Error parsing home data", e);
+              }
+            }
+          }
         }
       } catch (err) {
         console.error('Error fetching data:', err);
@@ -132,59 +157,92 @@ function Beranda() {
 
   const desaName = desa?.nama?.replace('Desa ', '') || 'Gumiwang';
 
+  // Fallbacks for home data if not yet set in database
+  const dHome = homeData || {};
+  const heroData = dHome.hero || {
+    title: "Eksplorasi<br/>Pesona Alam",
+    subtitle: `Selamat Datang di ${desaName}, tempat dimana tradisi dan alam menyatu harmoni.`,
+    image: "https://images.unsplash.com/photo-1590682680695-43b964a3ae17?auto=format&fit=crop&w=1920&q=80"
+  };
+  
+  const keajaibanData = dHome.keajaiban || {
+    title: "Keajaiban Desa Kami",
+    subtitle: "Temukan spot-spot menakjubkan yang belum pernah Anda kunjungi.",
+    items: [
+      { title: "Terasering Sawah Hijau", desc: "Nikmati pemandangan sawah berundak yang memanjakan mata.", image: "https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&w=800&q=80" },
+      { title: "Perikanan Bioflok", image: "https://images.unsplash.com/photo-1544551763-46a013bb70d5?auto=format&fit=crop&w=600&q=80" },
+      { title: "Kebun Hidroponik", image: "https://images.unsplash.com/photo-1518843875459-f738682238a6?auto=format&fit=crop&w=600&q=80" },
+      { title: "Kesenian Lokal", image: "https://images.unsplash.com/photo-1503676260728-1c00da094a0b?auto=format&fit=crop&w=800&q=80" },
+      { title: "Pusat Oleh-Oleh", image: "https://images.unsplash.com/photo-1621287955519-74e2d31bc40c?auto=format&fit=crop&w=800&q=80" }
+    ]
+  };
+
+  const keunggulanData = dHome.keunggulan || {
+    title: `Mengapa Berkunjung ke Deswita ${desaName}?`,
+    subtitle: "Nikmati pengalaman berwisata otentik dengan beragam fasilitas dan keasrian alam yang memikat.",
+    items: [
+      { icon: "🌱", title: "Alam Asri & Sejuk", desc: "Dikelilingi pemandangan persawahan berundak dan udara pedesaan yang bebas dari polusi kota." },
+      { icon: "🎭", title: "Kebudayaan Otentik", desc: "Rasakan hangatnya kearifan lokal, pertunjukan seni tradisional, serta keramahan warga desa." },
+      { icon: "🐟", title: "Eduwisata Komprehensif", desc: "Program edukasi perikanan bioflok, pertanian hidroponik, dan olahan pangan khas untuk segala usia." },
+      { icon: "🏡", title: "Fasilitas Nyaman", desc: "Tersedia homestay warga yang bersih, area parkir luas, tempat ibadah, serta kuliner lokal lezat." }
+    ]
+  };
+
+  const statData = dHome.statistik || [
+    { number: "15+", label: "Spot Wisata" },
+    { number: "1.2k+", label: "Pengunjung / Bulan" },
+    { number: "25+", label: "UMKM Lokal" },
+    { number: "100%", label: "Ramah Lingkungan" }
+  ];
+
+  const videoData = dHome.video || {
+    title: `Saksikan Keindahan ${desaName}`,
+    subtitle: "Jelajahi keasrian desa, keramahan warga, dan kekayaan budaya yang kami tawarkan melalui dokumenter eksklusif ini."
+  };
+
+  const mitraData = dHome.mitra || [
+    "Dinas Pariwisata", "Kemenparekraf", "Universitas Lokal", "Pokdarwis"
+  ];
+
   return (
     <div className="page-beranda">
       {/* 1. Hero Section - Left Aligned with Pill Search */}
       <HeroSection
-        title={<>Eksplorasi<br/>Pesona Alam</>}
-        description={`Selamat Datang di ${desaName}, tempat dimana tradisi dan alam menyatu harmoni.`}
+        title={<span dangerouslySetInnerHTML={{ __html: heroData.title }}></span>}
+        description={heroData.subtitle}
         showSearch={true}
-        image="https://images.unsplash.com/photo-1590682680695-43b964a3ae17?auto=format&fit=crop&w=1920&q=80"
+        image={heroData.image}
       />
 
       {/* 2. Destinasi - Featured Grid */}
       <section className="section bg-neutral" style={{ paddingTop: '60px' }}>
         <div className="container">
           <div className="section-header-alt">
-            <h2 className="main-title">Keajaiban Desa Kami</h2>
-            <p>Temukan spot-spot menakjubkan yang belum pernah Anda kunjungi.</p>
+            <h2 className="main-title">{keajaibanData.title}</h2>
+            <p>{keajaibanData.subtitle}</p>
           </div>
           
           <div className="destinasi-featured-grid">
-            <div className="bento-item featured-main" style={{backgroundImage: 'url(https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&w=800&q=80)'}}>
-              <div className="bento-overlay gradient-dark"></div>
-              <div className="bento-content">
-                <span className="bento-label">Terpopuler</span>
-                <h2>Terasering Sawah Hijau</h2>
-                <p>Nikmati pemandangan sawah berundak yang memanjakan mata.</p>
+            {keajaibanData.items && keajaibanData.items.length > 0 && (
+              <div className="bento-item featured-main" style={{backgroundImage: `url(${keajaibanData.items[0]?.image})`}}>
+                <div className="bento-overlay gradient-dark"></div>
+                <div className="bento-content">
+                  <span className="bento-label">Terpopuler</span>
+                  <h2>{keajaibanData.items[0]?.title}</h2>
+                  <p>{keajaibanData.items[0]?.desc}</p>
+                </div>
               </div>
-            </div>
+            )}
             
             <div className="featured-subgrid">
-              <div className="bento-item" style={{backgroundImage: 'url(https://images.unsplash.com/photo-1544551763-46a013bb70d5?auto=format&fit=crop&w=600&q=80)'}}>
-                <div className="bento-overlay"></div>
-                <div className="bento-content">
-                  <h3>Perikanan Bioflok</h3>
+              {keajaibanData.items && keajaibanData.items.slice(1, 5).map((item, idx) => (
+                <div key={idx} className="bento-item" style={{backgroundImage: `url(${item.image})`}}>
+                  <div className="bento-overlay"></div>
+                  <div className="bento-content">
+                    <h3>{item.title}</h3>
+                  </div>
                 </div>
-              </div>
-              <div className="bento-item" style={{backgroundImage: 'url(https://images.unsplash.com/photo-1518843875459-f738682238a6?auto=format&fit=crop&w=600&q=80)'}}>
-                <div className="bento-overlay"></div>
-                <div className="bento-content">
-                  <h3>Kebun Hidroponik</h3>
-                </div>
-              </div>
-              <div className="bento-item" style={{backgroundImage: 'url(https://images.unsplash.com/photo-1503676260728-1c00da094a0b?auto=format&fit=crop&w=800&q=80)'}}>
-                <div className="bento-overlay"></div>
-                <div className="bento-content">
-                  <h3>Kesenian Lokal</h3>
-                </div>
-              </div>
-              <div className="bento-item" style={{backgroundImage: 'url(https://images.unsplash.com/photo-1621287955519-74e2d31bc40c?auto=format&fit=crop&w=800&q=80)'}}>
-                <div className="bento-overlay"></div>
-                <div className="bento-content">
-                  <h3>Pusat Oleh-Oleh</h3>
-                </div>
-              </div>
+              ))}
             </div>
           </div>
         </div>
@@ -195,59 +253,33 @@ function Beranda() {
         <div className="container">
           <div className="section-header-alt text-center" style={{ marginBottom: '40px' }}>
             <span className="cursive-label" style={{ display: 'block', marginBottom: '10px', transform: 'none' }}>Keunggulan Kami</span>
-            <h2 className="main-title">Mengapa Berkunjung ke Deswita {desaName}?</h2>
+            <h2 className="main-title">{keunggulanData.title}</h2>
             <p className="section-subtitle" style={{ color: 'var(--color-text-muted)', marginTop: '8px' }}>
-              Nikmati pengalaman berwisata otentik dengan beragam fasilitas dan keasrian alam yang memikat.
+              {keunggulanData.subtitle}
             </p>
           </div>
 
           <div className="keunggulan-grid">
-            <div className="keunggulan-card">
-              <div className="keunggulan-icon">🌱</div>
-              <h3>Alam Asri & Sejuk</h3>
-              <p>Dikelilingi pemandangan persawahan berundak dan udara pedesaan yang bebas dari polusi kota.</p>
-            </div>
-
-            <div className="keunggulan-card">
-              <div className="keunggulan-icon">🎭</div>
-              <h3>Kebudayaan Otentik</h3>
-              <p>Rasakan hangatnya kearifan lokal, pertunjukan seni tradisional, serta keramahan warga desa.</p>
-            </div>
-
-            <div className="keunggulan-card">
-              <div className="keunggulan-icon">🐟</div>
-              <h3>Eduwisata Komprehensif</h3>
-              <p>Program edukasi perikanan bioflok, pertanian hidroponik, dan olahan pangan khas untuk segala usia.</p>
-            </div>
-
-            <div className="keunggulan-card">
-              <div className="keunggulan-icon">🏡</div>
-              <h3>Fasilitas Nyaman</h3>
-              <p>Tersedia homestay warga yang bersih, area parkir luas, tempat ibadah, serta kuliner lokal lezat.</p>
-            </div>
+            {keunggulanData.items.map((item, idx) => (
+              <div key={idx} className="keunggulan-card">
+                <div className="keunggulan-icon">{item.icon}</div>
+                <h3>{item.title}</h3>
+                <p>{item.desc}</p>
+              </div>
+            ))}
           </div>
 
           {/* Counter Stats Bar */}
           <div className="stats-banner-container">
-            <div className="stats-item">
-              <div className="stats-number">15+</div>
-              <div className="stats-label">Spot Wisata</div>
-            </div>
-            <div className="stats-divider"></div>
-            <div className="stats-item">
-              <div className="stats-number">1.2k+</div>
-              <div className="stats-label">Pengunjung / Bulan</div>
-            </div>
-            <div className="stats-divider"></div>
-            <div className="stats-item">
-              <div className="stats-number">25+</div>
-              <div className="stats-label">UMKM Lokal</div>
-            </div>
-            <div className="stats-divider"></div>
-            <div className="stats-item">
-              <div className="stats-number">100%</div>
-              <div className="stats-label">Ramah Lingkungan</div>
-            </div>
+            {statData.map((stat, idx) => (
+              <React.Fragment key={idx}>
+                <div className="stats-item">
+                  <div className="stats-number">{stat.number}</div>
+                  <div className="stats-label">{stat.label}</div>
+                </div>
+                {idx < statData.length - 1 && <div className="stats-divider"></div>}
+              </React.Fragment>
+            ))}
           </div>
         </div>
       </section>
@@ -276,8 +308,8 @@ function Beranda() {
           <div className="video-split-container">
             <div className="video-text-part">
               <span className="cursive-label" style={{transform: 'none'}}>Cerita Kami</span>
-              <h2>Saksikan Keindahan {desaName}</h2>
-              <p>Jelajahi keasrian desa, keramahan warga, dan kekayaan budaya yang kami tawarkan melalui dokumenter eksklusif ini.</p>
+              <h2>{videoData.title}</h2>
+              <p>{videoData.subtitle}</p>
               <Link to="/galeri" className="btn btn-outline" style={{marginTop: '1rem'}}>Lihat Galeri Lengkap</Link>
             </div>
             <div className="video-player-part">
@@ -296,10 +328,9 @@ function Beranda() {
         <div className="container">
           <div className="mitra-logos-clean">
             <span className="mitra-label-clean">Didukung Oleh:</span>
-            <div className="mitra-logo-item">Dinas Pariwisata</div>
-            <div className="mitra-logo-item">Kemenparekraf</div>
-            <div className="mitra-logo-item">Universitas Lokal</div>
-            <div className="mitra-logo-item">Pokdarwis</div>
+            {mitraData.map((mitra, idx) => (
+              <div key={idx} className="mitra-logo-item">{mitra}</div>
+            ))}
           </div>
         </div>
       </section>
@@ -314,10 +345,9 @@ function Beranda() {
           <div className="berita-magazine-grid">
             {/* Featured Article */}
             {berita.length > 0 && (
-              <article className="berita-card-featured" style={{backgroundImage: `url(${berita[0].image || 'https://images.unsplash.com/photo-1586771107445-d3af8e3b3a39?auto=format&fit=crop&w=800&q=80'})`}}>
+              <article className="berita-card-featured" style={{backgroundImage: `url("${getDirectImageUrl(berita[0].image) || 'https://images.unsplash.com/photo-1586771107445-d3af8e3b3a39?auto=format&fit=crop&w=800&q=80'}")`}}>
                 <div className="berita-featured-overlay"></div>
                 <div className="berita-featured-content">
-                  <span className="berita-category-pill">{berita[0].kategori}</span>
                   <h3>{berita[0].judul}</h3>
                   <p>{berita[0].tanggal}</p>
                   <Link to="/berita" className="btn btn-brand btn-sm" style={{marginTop: '10px'}}>Baca Artikel</Link>
@@ -329,7 +359,7 @@ function Beranda() {
             <div className="berita-list-side">
               {berita.slice(1).map((item) => (
                 <article key={item.id} className="berita-card-side">
-                  <div className="berita-side-image" style={{backgroundImage: `url(${item.image || 'https://images.unsplash.com/photo-1586771107445-d3af8e3b3a39?auto=format&fit=crop&w=400&q=80'})`}}></div>
+                  <div className="berita-side-image" style={{backgroundImage: `url("${getDirectImageUrl(item.image) || 'https://images.unsplash.com/photo-1586771107445-d3af8e3b3a39?auto=format&fit=crop&w=400&q=80'}")`}}></div>
                   <div className="berita-side-content">
                     <span className="berita-meta">{item.tanggal}</span>
                     <h4>{item.judul}</h4>

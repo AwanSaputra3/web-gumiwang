@@ -2,12 +2,6 @@ import { Link } from 'react-router-dom';
 import './WisataCard.css';
 
 function WisataCard({ wisata, index = 0 }) {
-  const kategoriEmoji = {
-    alam: '🏔️',
-    budaya: '🎭',
-    edukasi: '📚',
-  };
-
   return (
     <Link
       to={`/wisata/${wisata.id}`}
@@ -20,15 +14,10 @@ function WisataCard({ wisata, index = 0 }) {
         ) : (
           <div className="wisata-card__image-placeholder">
             <span className="wisata-card__image-emoji">
-              {kategoriEmoji[wisata.kategori] || '🌿'}
+              🌿
             </span>
           </div>
         )}
-        <div className="wisata-card__badge-wrap">
-          <span className={`badge badge-${wisata.kategori}`}>
-            {kategoriEmoji[wisata.kategori]} {wisata.kategori}
-          </span>
-        </div>
         {wisata.featured && (
           <span className="wisata-card__featured">⭐ Unggulan</span>
         )}

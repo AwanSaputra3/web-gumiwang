@@ -376,8 +376,10 @@
   position: relative;
   border-radius: var(--radius-xl);
   overflow: hidden;
-  background-size: cover;
+  background-size: contain;
+  background-repeat: no-repeat;
   background-position: center;
+  background-color: var(--color-neutral-800, #1e293b);
   color: white;
   display: flex;
   flex-direction: column;
@@ -437,8 +439,10 @@
   width: 120px;
   min-width: 120px;
   border-radius: var(--radius-md);
-  background-size: cover;
+  background-size: contain;
+  background-repeat: no-repeat;
   background-position: center;
+  background-color: var(--color-neutral-100, #f1f5f9);
 }
 
 .berita-side-content {

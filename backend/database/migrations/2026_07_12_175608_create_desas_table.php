@@ -6,20 +6,25 @@ use Illuminate\Support\Facades\Schema;
 
 return new class extends Migration
 {
-    /**
-     * Run the migrations.
-     */
     public function up(): void
     {
         Schema::create('desas', function (Blueprint $table) {
             $table->id();
+            $table->string('nama')->nullable();
+            $table->string('kecamatan')->nullable();
+            $table->string('kabupaten')->nullable();
+            $table->string('provinsi')->nullable();
+            $table->string('kodePos')->nullable();
+            $table->text('alamatLengkap')->nullable();
+            $table->text('deskripsi')->nullable();
+            $table->json('sejarah')->nullable();
+            $table->json('demografi')->nullable();
+            $table->json('kontak')->nullable();
+            $table->json('visiMisi')->nullable();
             $table->timestamps();
         });
     }
 
-    /**
-     * Reverse the migrations.
-     */
     public function down(): void
     {
         Schema::dropIfExists('desas');

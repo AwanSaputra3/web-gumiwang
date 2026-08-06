@@ -2,136 +2,7 @@ import { useState, useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import './DetailWisata.css';
 
-const DEFAULT_WISATA_MAP = {
-  "1": {
-    id: 1,
-    nama: "Wisata Edukasi Perikanan",
-    slug: "edukasi-perikanan",
-    kategori: "edukasi",
-    deskripsiSingkat: "Belajar budidaya ikan lele dan nila langsung dari peternak sukses Gumiwang.",
-    deskripsiLengkap: "Wisata Edukasi Perikanan Gumiwang mengajak pengunjung untuk melihat langsung proses budidaya ikan air tawar dari pembibitan hingga panen. Pengunjung, terutama anak-anak sekolah dan mahasiswa, dapat mempraktikkan cara memberi makan ikan, membedakan jenis kelamin induk ikan, hingga belajar teknologi bioflok yang diterapkan oleh peternak desa.",
-    harga: 15000,
-    hargaFormatted: "Rp 15.000",
-    satuanHarga: "per orang",
-    fasilitas: ["Pemandu Lapangan", "Pakan Ikan", "Modul Belajar", "Toilet & Kamar Mandi", "Spot Foto", "Area Parkir"],
-    jamOperasional: "08.00 - 15.00 WIB",
-    rating: 4.8,
-    featured: true,
-    image: "https://images.unsplash.com/photo-1524334228333-0f6db392f8a1?auto=format&fit=crop&w=800&q=80"
-  },
-  "2": {
-    id: 2,
-    nama: "Agrowisata Sawah Hijau",
-    slug: "agrowisata-sawah",
-    kategori: "alam",
-    deskripsiSingkat: "Menikmati hamparan sawah hijau sambil belajar bertani secara tradisional.",
-    deskripsiLengkap: "Destinasi ini menawarkan ketenangan dengan pemandangan hamparan sawah yang luas dan udara pedesaan yang sejuk. Selain menikmati pemandangan, pengunjung dapat ikut turun ke sawah untuk belajar menanam padi (tandur), membajak sawah dengan kerbau, atau ikut serta dalam panen padi pada musimnya.",
-    harga: 10000,
-    hargaFormatted: "Rp 10.000",
-    satuanHarga: "per orang",
-    fasilitas: ["Spot Foto Terasering", "Gazebo Istirahat", "Pemandu", "Area Cuci Kaki", "Warung Kuliner"],
-    jamOperasional: "06.00 - 17.00 WIB",
-    rating: 4.6,
-    featured: true,
-    image: "https://images.unsplash.com/photo-1590682680695-43b964a3ae17?auto=format&fit=crop&w=800&q=80"
-  },
-  "3": {
-    id: 3,
-    nama: "Workshop Pengolahan Lele",
-    slug: "workshop-olahan-lele",
-    kategori: "edukasi",
-    deskripsiSingkat: "Pelatihan membuat aneka olahan pangan bernilai jual dari ikan lele.",
-    deskripsiLengkap: "Bersama ibu-ibu PKK dan Kelompok Wanita Tani, pengunjung diajak untuk praktik langsung membuat aneka olahan berbahan dasar lele seperti abon lele, nugget lele, hingga kerupuk lele. Hasil praktik bisa dibawa pulang sebagai oleh-oleh.",
-    harga: 35000,
-    hargaFormatted: "Rp 35.000",
-    satuanHarga: "per orang (termasuk hasil olahan)",
-    fasilitas: ["Bahan Baku Olahan", "Alat Masak Lengkap", "Instruktur Kuliner", "Ruang Higienis", "Kemasan Oleh-oleh"],
-    jamOperasional: "09.00 - 14.00 WIB (Sabtu/Minggu)",
-    rating: 4.7,
-    featured: false,
-    image: "https://images.unsplash.com/photo-1582285516943-34e8be3426cb?auto=format&fit=crop&w=800&q=80"
-  },
-  "4": {
-    id: 4,
-    nama: "Susur Sungai & Tubing Gumiwang",
-    slug: "tubing-sungai-gumiwang",
-    kategori: "petualangan",
-    deskripsiSingkat: "Petualangan seru menyusuri aliran sungai jernih berbalut pemandangan perbukitan.",
-    deskripsiLengkap: "Rasakan sensasi petualangan mengarungi aliran sungai bersih Gumiwang menggunakan ban pelampung. Rute sepanjang 2 km menyajikan jeram-jeram ringan yang aman untuk keluarga dan teman-teman, dipandu instruktur berpengalaman.",
-    harga: 40000,
-    hargaFormatted: "Rp 40.000",
-    satuanHarga: "per orang",
-    fasilitas: ["Pelampung & Helm", "Pemandu Lapangan", "Dokumentasi Foto", "Teh Hangat & Mendoan", "Kamar Bilas"],
-    jamOperasional: "08.30 - 16.00 WIB",
-    rating: 4.9,
-    featured: true,
-    image: "https://images.unsplash.com/photo-1544551763-46a013bb70d5?auto=format&fit=crop&w=800&q=80"
-  },
-  "5": {
-    id: 5,
-    nama: "Camping Ground Bukit Gumiwang",
-    slug: "camping-ground-bukit",
-    kategori: "alam",
-    deskripsiSingkat: "Berkemah di atas bukit dengan panorama sunset dan city light malam hari.",
-    deskripsiLengkap: "Area berkemah yang tenang di dataran tinggi Gumiwang. Menawarkan pemandangan matahari terbenam yang memukau serta suasana malam bertabur bintang dan hamparan lampu kota dari kejauhan.",
-    harga: 25000,
-    hargaFormatted: "Rp 25.000",
-    satuanHarga: "per orang / malam",
-    fasilitas: ["Toilet & Kamar Mandi", "Sewa Tenda & Matras", "Api Unggun", "Keamanan 24 Jam", "Kantin 24 Jam"],
-    jamOperasional: "24 Jam",
-    rating: 4.7,
-    featured: true,
-    image: "https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&w=800&q=80"
-  },
-  "6": {
-    id: 6,
-    nama: "Pasar Wisata Kuliner Olahan Desa",
-    slug: "pasar-kuliner-desa",
-    kategori: "kuliner",
-    deskripsiSingkat: "Pusat jajanan tradisional dan masakan khas olahan ikan lele & nila segar.",
-    deskripsiLengkap: "Nikmati ragam hidangan khas pedesaan Banjarnegara seperti mendoan hangat, es dawet ayu, lele bakar kecap khas Gumiwang, serta jajanan pasar tradisional yang disajikan di area taman terbuka yang asri.",
-    harga: 5000,
-    hargaFormatted: "Rp 5.000",
-    satuanHarga: "tiket masuk",
-    fasilitas: ["Area Parkir Luas", "Meja Makan Taman", "Live Music Akustik", "Mushola Clean", "Toilet"],
-    jamOperasional: "07.00 - 16.00 WIB (Akhir Pekan)",
-    rating: 4.5,
-    featured: false,
-    image: "https://images.unsplash.com/photo-1555939594-58d7cb561ad1?auto=format&fit=crop&w=800&q=80"
-  },
-  "7": {
-    id: 7,
-    nama: "Sanggar Seni & Tari Gumiwang",
-    slug: "sanggar-seni-tari",
-    kategori: "budaya",
-    deskripsiSingkat: "Menyaksikan dan belajar tarian serta gamelan tradisional Jawa bersama seniman lokal.",
-    deskripsiLengkap: "Destinasi wisata budaya di mana wisatawan bisa menonton pertunjukan seni gamelan dan tari tradisional, serta berkesempatan belajar langsung memainkan gamelan atau menari bersama warga desa.",
-    harga: 20000,
-    hargaFormatted: "Rp 20.000",
-    satuanHarga: "per orang",
-    fasilitas: ["Panggung Pentas", "Alat Musik Gamelan", "Kostum Tari", "Instruktur Seni", "Foto Bersama"],
-    jamOperasional: "10.00 - 16.00 WIB",
-    rating: 4.8,
-    featured: false,
-    image: "https://images.unsplash.com/photo-1503676260728-1c00da094a0b?auto=format&fit=crop&w=800&q=80"
-  },
-  "8": {
-    id: 8,
-    nama: "Wisata Petik Sayur Organik",
-    slug: "wisata-petik-sayur",
-    kategori: "edukasi",
-    deskripsiSingkat: "Petik langsung sayuran bebas pestisida di kebun hidroponik & tanah organik.",
-    deskripsiLengkap: "Pengalaman edukatif memetik sayuran hidroponik segar seperti bayam merah, pakcoy, dan tomat buah langsung dari pohonnya. Sayuran yang dipetik dapat ditimbang dan dibawa pulang dengan harga terjangkau.",
-    harga: 15000,
-    hargaFormatted: "Rp 15.000",
-    satuanHarga: "per orang",
-    fasilitas: ["Keranjang Petik", "Topi Caping", "Keran Air Bersih", "Timbangan Digital", "Pembungkus Ramah Lingkungan"],
-    jamOperasional: "07.00 - 15.00 WIB",
-    rating: 4.7,
-    featured: true,
-    image: "https://images.unsplash.com/photo-1518843875459-f738682238a6?auto=format&fit=crop&w=800&q=80"
-  }
-};
+const DEFAULT_WISATA_MAP = {};
 
 function DetailWisata() {
   const { id } = useParams();
@@ -204,9 +75,6 @@ function DetailWisata() {
     );
   }
 
-  const emoji = kategoriEmoji[wisata.kategori?.toLowerCase()] || '✨';
-  const bgGradient = kategoriGradient[wisata.kategori?.toLowerCase()] || 'linear-gradient(135deg, #e2e8f0 0%, #cbd5e1 100%)';
-
   const galleryImages = [
     wisata.image,
     'https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&w=800&q=80',
@@ -219,22 +87,14 @@ function DetailWisata() {
       {/* Hero Banner */}
       <section className="detail-hero" style={{ backgroundImage: `url(${galleryImages[activeGallery]})` }}>
         <div className="detail-hero__overlay"></div>
-        <div className="container detail-hero__container">
+        <div className="container detail-hero__container" style={{ paddingTop: '10rem', paddingBottom: '3rem', position: 'relative', zIndex: 2 }}>
           <Link to="/wisata" className="detail-back-link">
             ← Kembali ke Daftar Wisata
           </Link>
-          <div className="detail-hero__badges">
-            <span className="detail-badge detail-badge--category" style={{ background: bgGradient }}>
-              {emoji} {wisata.kategori?.toUpperCase()}
-            </span>
-            {wisata.featured && (
-              <span className="detail-badge detail-badge--featured">
-                ⭐ Terfavorit
-              </span>
-            )}
+          <div style={{ background: 'rgba(0, 0, 0, 0.6)', padding: '1.5rem', borderRadius: 'var(--radius-lg)', display: 'inline-block', maxWidth: '1000px', border: '1px solid rgba(255,255,255,0.2)', marginTop: '2rem' }}>
+            <h1 className="detail-hero__title" style={{ margin: 0 }}>{wisata.nama}</h1>
+            <p className="detail-hero__subtitle" style={{ margin: '0.5rem 0 0 0', color: 'rgba(255,255,255,0.9)' }}>{wisata.deskripsiSingkat}</p>
           </div>
-          <h1 className="detail-hero__title">{wisata.nama}</h1>
-          <p className="detail-hero__subtitle">{wisata.deskripsiSingkat}</p>
         </div>
       </section>
 
@@ -244,13 +104,13 @@ function DetailWisata() {
           {/* Main Info */}
           <div className="detail-main">
             {/* Gallery Thumbnails */}
-            <div className="detail-gallery">
-              <h3>Galeri Foto</h3>
-              <div className="detail-gallery__grid">
+            <div className="detail-gallery" style={{ marginBottom: '2.5rem' }}>
+              <h3 style={{ marginBottom: '1rem' }}>Galeri Foto</h3>
+              <div className="detail-gallery__thumbs">
                 {galleryImages.map((img, idx) => (
                   <div
                     key={idx}
-                    className={`detail-gallery__thumb ${activeGallery === idx ? 'active' : ''}`}
+                    className={`detail-gallery__thumb ${activeGallery === idx ? 'detail-gallery__thumb--active' : ''}`}
                     onClick={() => setActiveGallery(idx)}
                   >
                     <img src={img} alt={`${wisata.nama} ${idx + 1}`} />
@@ -260,15 +120,15 @@ function DetailWisata() {
             </div>
 
             {/* Description */}
-            <div className="detail-section">
-              <h3>Deskripsi Destinasi</h3>
-              <p className="detail-description">{wisata.deskripsiLengkap}</p>
+            <div className="detail-section glass-card" style={{ padding: '2rem', borderRadius: 'var(--radius-lg)' }}>
+              <h3 style={{ borderBottom: '2px solid var(--color-border-light)', paddingBottom: '0.5rem', marginBottom: '1rem' }}>Deskripsi Destinasi</h3>
+              <p className="detail-description" style={{ lineHeight: '1.8', whiteSpace: 'pre-line' }}>{wisata.deskripsiLengkap}</p>
             </div>
 
             {/* Facilities */}
-            {wisata.fasilitas && wisata.fasilitas.length > 0 && (
-              <div className="detail-section">
-                <h3>Fasilitas yang Tersedia</h3>
+            {Array.isArray(wisata.fasilitas) && wisata.fasilitas.length > 0 && (
+              <div className="detail-section glass-card" style={{ padding: '2rem', borderRadius: 'var(--radius-lg)' }}>
+                <h3 style={{ borderBottom: '2px solid var(--color-border-light)', paddingBottom: '0.5rem', marginBottom: '1rem' }}>Fasilitas yang Tersedia</h3>
                 <div className="detail-facilities">
                   {wisata.fasilitas.map((fas, idx) => (
                     <div key={idx} className="facility-chip">
@@ -283,26 +143,28 @@ function DetailWisata() {
 
           {/* Sidebar Booking Card */}
           <aside className="detail-sidebar">
-            <div className="detail-card glass-card">
-              <div className="detail-card__price">
-                <span className="price-label">Tiket / Biaya:</span>
-                <div className="price-amount">{wisata.hargaFormatted}</div>
-                {wisata.satuanHarga && (
-                  <span className="price-unit">/ {wisata.satuanHarga}</span>
-                )}
+            <div className="detail-price-card glass-card">
+              <div className="detail-price-card__header">
+                <span className="detail-price-card__label">Tiket / Biaya:</span>
+                <div style={{ display: 'flex', alignItems: 'baseline', justifyContent: 'center', gap: '8px' }}>
+                  <span className="detail-price-card__price">{wisata.hargaFormatted}</span>
+                  {wisata.satuanHarga && (
+                    <span className="detail-price-card__unit">/ {wisata.satuanHarga}</span>
+                  )}
+                </div>
               </div>
 
-              <div className="detail-card__info">
-                <div className="info-row">
-                  <span className="info-row__icon">⏰</span>
-                  <div>
+              <div className="detail-price-card__info">
+                <div className="detail-info-row">
+                  <span className="detail-info-row__icon">⏰</span>
+                  <div className="detail-info-row__text">
                     <strong>Jam Operasional</strong>
                     <p>{wisata.jamOperasional || '08.00 - 16.00 WIB'}</p>
                   </div>
                 </div>
-                <div className="info-row">
-                  <span className="info-row__icon">⭐</span>
-                  <div>
+                <div className="detail-info-row">
+                  <span className="detail-info-row__icon">⭐</span>
+                  <div className="detail-info-row__text">
                     <strong>Rating Wisatawan</strong>
                     <p>{wisata.rating || '4.8'} / 5.0 (Berdasarkan ulasan)</p>
                   </div>
@@ -310,13 +172,13 @@ function DetailWisata() {
               </div>
 
               <a
-                href={`https://wa.me/6281234567890?text=Halo%20Pemdes%20Gumiwang,%20saya%20tertarik%20dengan%20wisata%20${encodeURIComponent(wisata.nama)}`}
+                href={`https://wa.me/${wisata.whatsapp || '6281234567890'}?text=Halo%20Pemdes%20Gumiwang,%20saya%20tertarik%20dengan%20wisata%20${encodeURIComponent(wisata.nama)}`}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="btn btn-brand btn-lg btn-block"
                 style={{ textAlign: 'center', marginTop: '1rem' }}
               >
-                📱 Pesan Tiket / Info WA
+                🎟️ Pesan Tiket / Info WA
               </a>
             </div>
           </aside>

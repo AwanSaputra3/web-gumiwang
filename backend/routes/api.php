@@ -2,7 +2,14 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
-use Illuminate\Support\Facades\File;
+
+use App\Http\Controllers\AuthController;
+use App\Http\Controllers\BeritaController;
+use App\Http\Controllers\DesaController;
+use App\Http\Controllers\KomoditasController;
+use App\Http\Controllers\SettingController;
+use App\Http\Controllers\UmkmController;
+use App\Http\Controllers\WisataController;
 
 /*
 |--------------------------------------------------------------------------
@@ -10,91 +17,31 @@ use Illuminate\Support\Facades\File;
 |--------------------------------------------------------------------------
 */
 
-use App\Http\Controllers\AuthController;
-
 Route::post('/login', [AuthController::class, 'login']);
 
+// Public Routes
+Route::get('/desa', [DesaController::class, 'index']);
+Route::get('/umkm', [UmkmController::class, 'index']);
+Route::get('/umkm/{id}', [UmkmController::class, 'show']);
+Route::get('/komoditas', [KomoditasController::class, 'index']);
+Route::get('/komoditas/{id}', [KomoditasController::class, 'show']);
+Route::get('/wisata', [WisataController::class, 'index']);
+Route::get('/wisata/{id}', [WisataController::class, 'show']);
+Route::get('/berita', [BeritaController::class, 'index']);
+Route::get('/berita/{id}', [BeritaController::class, 'show']);
+Route::get('/settings', [SettingController::class, 'index']);
+
+// Protected Admin Routes
 Route::middleware('auth:sanctum')->group(function () {
     Route::get('/user', [AuthController::class, 'user']);
     Route::post('/logout', [AuthController::class, 'logout']);
-});
 
-// Helper function to read JSON from storage/app/json_data
-function getJsonData($filename) {
-    $path = storage_path('app/json_data/' . $filename . '.json');
-    if (!File::exists($path)) {
-        return [];
-    }
-    return json_decode(File::get($path), true);
-}
-
-Route::get('/desa', function () {
-    return response()->json([
-        'success' => true,
-        'data' => getJsonData('desa')
-    ]);
-});
-
-Route::get('/komoditas', function () {
-    return response()->json([
-        'success' => true,
-        'data' => getJsonData('komoditas')
-    ]);
-});
-
-Route::get('/wisata', function (Request $request) {
-    $wisata = collect(getJsonData('wisata'));
-    
-    if ($request->has('kategori')) {
-        $wisata = $wisata->filter(function ($item) use ($request) {
-            return strtolower($item['kategori'] ?? '') === strtolower($request->kategori);
-        });
-    }
-
-    return response()->json([
-        'success' => true,
-        'count' => $wisata->count(),
-        'data' => $wisata->values()
-    ]);
-});
-
-Route::get('/wisata/featured', function () {
-    $wisata = collect(getJsonData('wisata'))->filter(function ($item) {
-        return isset($item['featured']) && $item['featured'] === true;
-    });
-
-    return response()->json([
-        'success' => true,
-        'count' => $wisata->count(),
-        'data' => $wisata->values()
-    ]);
-});
-
-Route::get('/wisata/{id}', function ($id) {
-    if (!is_numeric($id)) return response()->json(['success' => false], 404);
-    
-    $wisata = collect(getJsonData('wisata'))->firstWhere('id', (int) $id);
-    
-    if (!$wisata) {
-        return response()->json(['success' => false, 'message' => 'Wisata tidak ditemukan'], 404);
-    }
-
-    return response()->json([
-        'success' => true,
-        'data' => $wisata
-    ]);
-});
-
-Route::get('/galeri', function () {
-    return response()->json([
-        'success' => true,
-        'data' => getJsonData('galeri')
-    ]);
-});
-
-Route::get('/berita', function () {
-    return response()->json([
-        'success' => true,
-        'data' => getJsonData('berita')
-    ]);
+    // Admin CRUD routes
+    Route::post('admin/upload', [\App\Http\Controllers\UploadController::class, 'upload']);
+    Route::apiResource('admin/berita', BeritaController::class);
+    Route::apiResource('admin/wisata', WisataController::class);
+    Route::apiResource('admin/komoditas', KomoditasController::class);
+    Route::apiResource('admin/umkm', UmkmController::class);
+    Route::apiResource('admin/desa', DesaController::class);
+    Route::apiResource('admin/settings', SettingController::class);
 });

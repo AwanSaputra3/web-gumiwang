@@ -23,8 +23,19 @@ const AdminLayout = () => {
               </NavLink>
             </li>
             <li>
-              <NavLink to="/admin/berita" className={({ isActive }) => (isActive ? 'active' : '')}>
-                Kelola Berita
+              <NavLink to="/admin/home" className={({ isActive }) => (isActive ? 'active' : '')}>
+                Kelola Home
+              </NavLink>
+            </li>
+            <li>
+              <NavLink to="/admin/umkm" className={({ isActive }) => (isActive ? 'active' : '')}>
+                Kelola Komoditas
+              </NavLink>
+            </li>
+
+            <li>
+              <NavLink to="/admin/komoditas" className={({ isActive }) => (isActive ? 'active' : '')}>
+                Kelola Produk
               </NavLink>
             </li>
             <li>
@@ -33,13 +44,18 @@ const AdminLayout = () => {
               </NavLink>
             </li>
             <li>
-              <NavLink to="/admin/komoditas" className={({ isActive }) => (isActive ? 'active' : '')}>
-                Kelola Komoditas
+              <NavLink to="/admin/peta" className={({ isActive }) => (isActive ? 'active' : '')}>
+                Kelola Peta
               </NavLink>
             </li>
             <li>
-              <NavLink to="/admin/galeri" className={({ isActive }) => (isActive ? 'active' : '')}>
-                Kelola Galeri
+              <NavLink to="/admin/berita" className={({ isActive }) => (isActive ? 'active' : '')}>
+                Kelola Berita
+              </NavLink>
+            </li>
+            <li>
+              <NavLink to="/admin/kontak" className={({ isActive }) => (isActive ? 'active' : '')}>
+                Kelola Kontak
               </NavLink>
             </li>
           </ul>

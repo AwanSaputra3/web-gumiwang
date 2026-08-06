@@ -22,10 +22,9 @@ function Navbar() {
   const navLinks = [
     { path: '/', label: 'Home' },
     { path: '/profil', label: 'Profil' },
-    { path: '/komoditas', label: 'Komoditas' },
+    { path: '/umkm', label: 'Komoditas' },
     { path: '/wisata', label: 'Wisata' },
     { path: '/peta', label: 'Peta' },
-    { path: '/galeri', label: 'Galeri' },
     { path: '/berita', label: 'Berita' },
     { path: '/kontak', label: 'Kontak' },
   ];
