@@ -98,7 +98,7 @@ const DEFAULT_BERITA_HOME = [
 
 function Beranda() {
   const [desa, setDesa] = useState({ nama: "Desa Gumiwang" });
-  const [wisata, setWisata] = useState(DEFAULT_WISATA_HOME);
+  const [wisata, setWisata] = useState([]);
   const [berita, setBerita] = useState(DEFAULT_BERITA_HOME);
   const [homeData, setHomeData] = useState(null);
   const [loading, setLoading] = useState(true);
@@ -108,7 +108,7 @@ function Beranda() {
       try {
         const [desaRes, wisataRes, beritaRes, settingsRes] = await Promise.all([
           fetch('/api/desa'),
-          fetch('/api/wisata/featured'),
+          fetch('/api/wisata'),
           fetch('/api/berita'),
           fetch('/api/settings')
         ]);
@@ -289,7 +289,7 @@ function Beranda() {
         <div className="container">
           <div className="section-header-alt text-center">
             <span className="cursive-label" style={{display: 'block', marginBottom: '10px', transform: 'none'}}>Favorit Pengunjung</span>
-            <h2 className="main-title">Paket Wisata Populer</h2>
+            <h2 className="main-title">Wisata Populer</h2>
           </div>
           
           <div className="wisata-populer-grid">

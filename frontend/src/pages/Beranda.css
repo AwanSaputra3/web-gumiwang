@@ -265,9 +265,31 @@
 
 /* ── 4. Wisata Populer ── */
 .wisata-populer-grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: var(--space-4);
+  display: flex;
+  overflow-x: auto;
+  gap: var(--space-6);
+  padding-bottom: var(--space-6);
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+}
+
+.wisata-populer-grid::-webkit-scrollbar {
+  height: 8px;
+}
+
+.wisata-populer-grid::-webkit-scrollbar-track {
+  background: var(--color-bg-alt, #f8fafc);
+  border-radius: 10px;
+}
+
+.wisata-populer-grid::-webkit-scrollbar-thumb {
+  background: var(--color-brand-green, #1b4d3e);
+  border-radius: 10px;
+}
+
+.wisata-populer-grid > div {
+  flex: 0 0 320px;
+  scroll-snap-align: start;
 }
 
 /* ── 5. Video Gallery Split ── */
@@ -490,7 +512,7 @@
     height: 300px;
   }
   .wisata-populer-grid {
-    grid-template-columns: repeat(2, 1fr);
+    /* No longer a grid, so no need to override columns */
   }
   .keunggulan-grid {
     grid-template-columns: repeat(2, 1fr);
