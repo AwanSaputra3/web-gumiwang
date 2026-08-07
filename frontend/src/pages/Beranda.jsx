@@ -310,7 +310,6 @@ function Beranda() {
               <span className="cursive-label" style={{transform: 'none'}}>Cerita Kami</span>
               <h2>{videoData.title}</h2>
               <p>{videoData.subtitle}</p>
-              <Link to="/galeri" className="btn btn-outline" style={{marginTop: '1rem'}}>Lihat Galeri Lengkap</Link>
             </div>
             <div className="video-player-part">
               <div className="video-thumbnail" style={{backgroundImage: 'url(https://images.unsplash.com/photo-1524334228333-0f6db392f8a1?auto=format&fit=crop&w=1000&q=80)'}}>
