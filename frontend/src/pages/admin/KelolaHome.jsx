@@ -37,7 +37,8 @@ const DEFAULT_HOME_DATA = {
   ],
   video: {
     title: "Saksikan Keindahan Gumiwang",
-    subtitle: "Jelajahi keasrian desa, keramahan warga, dan kekayaan budaya yang kami tawarkan melalui dokumenter eksklusif ini."
+    subtitle: "Jelajahi keasrian desa, keramahan warga, dan kekayaan budaya yang kami tawarkan melalui dokumenter eksklusif ini.",
+    youtubeUrl: ""
   },
   mitra: [
     "Dinas Pariwisata", "Kemenparekraf", "Universitas Lokal", "Pokdarwis"
@@ -299,6 +300,10 @@ const KelolaHome = () => {
           <div className="form-group">
             <label>Deskripsi Cerita</label>
             <textarea name="subtitle" value={formData.video.subtitle} onChange={handleVideoChange} rows="2" required></textarea>
+          </div>
+          <div className="form-group">
+            <label>Link YouTube (opsional)</label>
+            <input type="text" name="youtubeUrl" value={formData.video.youtubeUrl || ''} onChange={handleVideoChange} placeholder="Contoh: https://www.youtube.com/watch?v=..." />
           </div>
 
           {/* Mitra */}

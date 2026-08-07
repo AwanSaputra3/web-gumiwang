@@ -14,6 +14,15 @@ const getDirectImageUrl = (url) => {
   return url;
 };
 
+const getYoutubeEmbedUrl = (url) => {
+  if (!url) return null;
+  const regExp = /^.*(youtu.be\/|v\/|u\/\w\/|embed\/|watch\?v=|&v=)([^#&?]*).*/;
+  const match = url.match(regExp);
+  return (match && match[2].length === 11)
+    ? `https://www.youtube.com/embed/${match[2]}`
+    : null;
+};
+
 const DEFAULT_WISATA_HOME = [
   {
     id: 1,
@@ -312,11 +321,24 @@ function Beranda() {
               <p>{videoData.subtitle}</p>
             </div>
             <div className="video-player-part">
-              <div className="video-thumbnail" style={{backgroundImage: 'url(https://images.unsplash.com/photo-1524334228333-0f6db392f8a1?auto=format&fit=crop&w=1000&q=80)'}}>
-                <button className="play-button-elegant">
-                  <span>▶</span>
-                </button>
-              </div>
+              {getYoutubeEmbedUrl(videoData.youtubeUrl) ? (
+                <iframe 
+                  width="100%" 
+                  height="400" 
+                  src={getYoutubeEmbedUrl(videoData.youtubeUrl)} 
+                  title="YouTube video player" 
+                  frameBorder="0" 
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                  allowFullScreen
+                  style={{ borderRadius: 'var(--radius-2xl)', boxShadow: 'var(--shadow-xl)' }}
+                ></iframe>
+              ) : (
+                <div className="video-thumbnail" style={{backgroundImage: 'url(https://images.unsplash.com/photo-1524334228333-0f6db392f8a1?auto=format&fit=crop&w=1000&q=80)'}}>
+                  <button className="play-button-elegant">
+                    <span>▶</span>
+                  </button>
+                </div>
+              )}
             </div>
           </div>
         </div>
