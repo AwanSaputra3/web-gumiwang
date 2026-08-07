@@ -26,6 +26,10 @@ Route::get('/umkm/{id}', [UmkmController::class, 'show']);
 Route::get('/komoditas', [KomoditasController::class, 'index']);
 Route::get('/komoditas/{id}', [KomoditasController::class, 'show']);
 Route::get('/wisata', [WisataController::class, 'index']);
+Route::get('/wisata/featured', function (Illuminate\Http\Request $request) {
+    $request->merge(['featured' => true]);
+    return app(WisataController::class)->index($request);
+});
 Route::get('/wisata/{id}', [WisataController::class, 'show']);
 Route::get('/berita', [BeritaController::class, 'index']);
 Route::get('/berita/{id}', [BeritaController::class, 'show']);
