@@ -1,3 +1,4 @@
+import { Helmet } from 'react-helmet-async';
 import React, { useState, useEffect } from 'react';
 import GenericCrud from '../../components/admin/GenericCrud';
 

@@ -1,3 +1,4 @@
+import { Helmet } from 'react-helmet-async';
 import './KategoriFilter.css';
 
 function KategoriFilter({ categories, activeCategory, onCategoryChange }) {

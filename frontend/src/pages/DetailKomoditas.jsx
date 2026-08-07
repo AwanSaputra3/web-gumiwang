@@ -1,3 +1,4 @@
+import { Helmet } from 'react-helmet-async';
 import { useState, useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import './DetailWisata.css'; // Reuse Wisata CSS for similar layout

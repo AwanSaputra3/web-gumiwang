@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url>
+    <loc>https://visitgumiwang.web.id/</loc>
+    <changefreq>weekly</changefreq>
+  </url>
+  <url>
+    <loc>https://visitgumiwang.web.id/profil</loc>
+  </url>
+  <url>
+    <loc>https://visitgumiwang.web.id/komoditas</loc>
+    <changefreq>daily</changefreq>
+  </url>
+  <url>
+    <loc>https://visitgumiwang.web.id/berita</loc>
+    <changefreq>daily</changefreq>
+  </url>
+</urlset>

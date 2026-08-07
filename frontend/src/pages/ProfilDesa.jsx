@@ -1,3 +1,4 @@
+import { Helmet } from 'react-helmet-async';
 import { useState, useEffect } from 'react';
 import HeroSection from '../components/HeroSection.jsx';
 import './ProfilDesa.css';
