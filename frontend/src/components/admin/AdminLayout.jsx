@@ -44,11 +44,6 @@ const AdminLayout = () => {
               </NavLink>
             </li>
             <li>
-              <NavLink to="/admin/peta" className={({ isActive }) => (isActive ? 'active' : '')}>
-                Kelola Peta
-              </NavLink>
-            </li>
-            <li>
               <NavLink to="/admin/berita" className={({ isActive }) => (isActive ? 'active' : '')}>
                 Kelola Berita
               </NavLink>

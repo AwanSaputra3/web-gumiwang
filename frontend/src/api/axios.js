@@ -1,7 +1,13 @@
 import axios from 'axios';
 
+// 1. Deteksi apakah aplikasi sedang berjalan di hosting (production) berdasarkan URL
+const isLive = window.location.hostname.includes('visitgumiwang.web.id');
+
+// 2. Tentukan baseURL
+const baseURL = import.meta.env.VITE_API_URL || (isLive ? 'https://visitgumiwang.web.id/backend/public/api' : '/api');
+
 const api = axios.create({
-  baseURL: import.meta.env.VITE_API_BASE_URL || 'https://visitgumiwang.web.id/api',
+  baseURL: baseURL,
   headers: {
     'Content-Type': 'application/json',
     'Accept': 'application/json',
@@ -25,10 +31,11 @@ api.interceptors.response.use(
   (response) => response,
   (error) => {
     if (error.response && error.response.status === 401) {
-      // If token is invalid or expired
+      // Hapus sesi jika token kadaluarsa atau tidak valid
       localStorage.removeItem('admin_token');
       localStorage.removeItem('admin_user');
-      window.location.href = '/admin/login';
+      // Menggunakan replace agar user tidak bisa 'back' ke halaman error
+      window.location.replace('/admin/login');
     }
     return Promise.reject(error);
   }

@@ -76,7 +76,6 @@ function App() {
             <Route path="komoditas" element={<KelolaKomoditas />} />
             <Route path="umkm" element={<KelolaUmkm />} />
             <Route path="wisata" element={<KelolaWisata />} />
-            <Route path="peta" element={<KelolaSettings title="Kelola Peta" />} />
             <Route path="berita" element={<KelolaBerita />} />
             <Route path="kontak" element={<KelolaKontak />} />
             {/* Redirect /admin to /admin/dashboard */}
