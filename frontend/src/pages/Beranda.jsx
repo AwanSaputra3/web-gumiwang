@@ -220,7 +220,6 @@ function Beranda() {
       <HeroSection
         title={<span dangerouslySetInnerHTML={{ __html: heroData.title }}></span>}
         description={heroData.subtitle}
-        showSearch={true}
         image={heroData.image}
       />
 

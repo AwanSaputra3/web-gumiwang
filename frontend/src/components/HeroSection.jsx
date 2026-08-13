@@ -12,7 +12,6 @@ function HeroSection({
   secondaryCtaLink,
   compact = false,
   image = "https://images.unsplash.com/photo-1590682680695-43b964a3ae17?auto=format&fit=crop&w=1920&q=80",
-  showSearch = false,
 }) {
   return (
     <section className={`hero-improvised ${compact ? 'hero-compact' : ''}`}>
@@ -26,17 +25,7 @@ function HeroSection({
           <h1 className="hero-new__title">{title}</h1>
           {description && <p className="hero-new__subtitle">{description}</p>}
           
-          {showSearch && (
-            <div className="hero-search-pill glass-card">
-              <div className="search-pill-field">
-                <span className="icon">📍</span>
-                <span>Cari Destinasi...</span>
-              </div>
-              <button className="btn btn-brand search-btn-round">Cari</button>
-            </div>
-          )}
-
-          {(ctaText || secondaryCtaText) && !showSearch && (
+          {(ctaText || secondaryCtaText) && (
             <div className="hero__actions">
               {ctaText && ctaLink && (
                 <Link to={ctaLink} className="btn btn-brand btn-lg">
