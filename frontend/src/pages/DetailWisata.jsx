@@ -76,26 +76,21 @@ function DetailWisata() {
     );
   }
 
-  const galleryImages = [
-    wisata.image,
-    'https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&w=800&q=80',
-    'https://images.unsplash.com/photo-1590682680695-43b964a3ae17?auto=format&fit=crop&w=800&q=80',
-    'https://images.unsplash.com/photo-1524334228333-0f6db392f8a1?auto=format&fit=crop&w=800&q=80',
-  ];
+  const galleryImages = wisata.image ? [wisata.image] : [];
 
   return (
     <div className="detail-page">
       {/* Hero Banner */}
-      <section className="detail-hero" style={{ backgroundImage: `url(${galleryImages[activeGallery]})` }}>
+      <section className="detail-hero" style={{ backgroundImage: `url(${galleryImages[activeGallery] || ''})` }}>
         <div className="detail-hero__overlay"></div>
-        <div className="container detail-hero__container" style={{ paddingTop: '10rem', paddingBottom: '3rem', position: 'relative', zIndex: 2 }}>
-          <Link to="/wisata" className="detail-back-link">
-            ← Kembali ke Daftar Wisata
-          </Link>
-          <div style={{ background: 'rgba(0, 0, 0, 0.6)', padding: '1.5rem', borderRadius: 'var(--radius-lg)', display: 'inline-block', maxWidth: '1000px', border: '1px solid rgba(255,255,255,0.2)', marginTop: '2rem' }}>
+        <div className="container detail-hero__container" style={{ paddingTop: '10rem', paddingBottom: '3rem', position: 'relative', zIndex: 2, display: 'flex', flexDirection: 'column', alignItems: 'flex-start' }}>
+          <div style={{ background: 'rgba(0, 0, 0, 0.6)', padding: '1.5rem', borderRadius: 'var(--radius-lg)', display: 'inline-block', maxWidth: '1000px', border: '1px solid rgba(255,255,255,0.2)', marginBottom: '1.5rem' }}>
             <h1 className="detail-hero__title" style={{ margin: 0 }}>{wisata.nama}</h1>
             <p className="detail-hero__subtitle" style={{ margin: '0.5rem 0 0 0', color: 'rgba(255,255,255,0.9)' }}>{wisata.deskripsiSingkat}</p>
           </div>
+          <Link to="/wisata" className="detail-back-link" style={{ color: 'white', textDecoration: 'none', background: 'rgba(255,255,255,0.2)', padding: '8px 16px', borderRadius: '20px', backdropFilter: 'blur(4px)', border: '1px solid rgba(255,255,255,0.3)', display: 'inline-block' }}>
+            ← Kembali ke Daftar Wisata
+          </Link>
         </div>
       </section>
 
@@ -105,20 +100,22 @@ function DetailWisata() {
           {/* Main Info */}
           <div className="detail-main">
             {/* Gallery Thumbnails */}
-            <div className="detail-gallery" style={{ marginBottom: '2.5rem' }}>
-              <h3 style={{ marginBottom: '1rem' }}>Galeri Foto</h3>
-              <div className="detail-gallery__thumbs">
-                {galleryImages.map((img, idx) => (
-                  <div
-                    key={idx}
-                    className={`detail-gallery__thumb ${activeGallery === idx ? 'detail-gallery__thumb--active' : ''}`}
-                    onClick={() => setActiveGallery(idx)}
-                  >
-                    <img src={img} alt={`${wisata.nama} ${idx + 1}`} />
-                  </div>
-                ))}
+            {galleryImages.length > 0 && (
+              <div className="detail-gallery" style={{ marginBottom: '2.5rem' }}>
+                <h3 style={{ marginBottom: '1rem' }}>Galeri Foto</h3>
+                <div className="detail-gallery__thumbs">
+                  {galleryImages.map((img, idx) => (
+                    <div
+                      key={idx}
+                      className={`detail-gallery__thumb ${activeGallery === idx ? 'detail-gallery__thumb--active' : ''}`}
+                      onClick={() => setActiveGallery(idx)}
+                    >
+                      <img src={img} alt={`${wisata.nama} ${idx + 1}`} />
+                    </div>
+                  ))}
+                </div>
               </div>
-            </div>
+            )}
 
             {/* Description */}
             <div className="detail-section glass-card" style={{ padding: '2rem', borderRadius: 'var(--radius-lg)' }}>
