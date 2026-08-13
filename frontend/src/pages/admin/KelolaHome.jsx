@@ -78,7 +78,7 @@ const KelolaHome = () => {
                 items: parsedValue.keunggulan?.items?.length === 4 ? parsedValue.keunggulan.items : DEFAULT_HOME_DATA.keunggulan.items
               },
               statistik: parsedValue.statistik?.length === 4 ? parsedValue.statistik : DEFAULT_HOME_DATA.statistik,
-              mitra: parsedValue.mitra?.length === 4 ? parsedValue.mitra : DEFAULT_HOME_DATA.mitra
+              mitra: Array.isArray(parsedValue.mitra) ? parsedValue.mitra : DEFAULT_HOME_DATA.mitra
             });
           } catch (e) {
             console.error("Error parsing home JSON", e);
@@ -144,6 +144,18 @@ const KelolaHome = () => {
     setFormData(prev => {
       const newMitra = [...prev.mitra];
       newMitra[index] = value;
+      return { ...prev, mitra: newMitra };
+    });
+  };
+
+  const addMitra = () => {
+    setFormData(prev => ({ ...prev, mitra: [...prev.mitra, "Mitra Baru"] }));
+  };
+
+  const removeMitra = (index) => {
+    setFormData(prev => {
+      const newMitra = [...prev.mitra];
+      newMitra.splice(index, 1);
       return { ...prev, mitra: newMitra };
     });
   };
@@ -308,12 +320,18 @@ const KelolaHome = () => {
           </div>
 
           {/* Mitra */}
-          <h3 style={{ borderBottom: '1px solid #ddd', paddingBottom: '10px', marginTop: '30px' }}>6. Mitra / Didukung Oleh</h3>
+          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', borderBottom: '1px solid #ddd', paddingBottom: '10px', marginTop: '30px' }}>
+            <h3 style={{ margin: 0, borderBottom: 'none', paddingBottom: 0, marginTop: 0 }}>6. Mitra / Didukung Oleh</h3>
+            <button type="button" onClick={addMitra} style={{ padding: '6px 12px', fontSize: '13px', background: '#1b4d3e', color: 'white', border: 'none', borderRadius: '4px', cursor: 'pointer' }}>+ Tambah Mitra</button>
+          </div>
           <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '15px', marginTop: '15px' }}>
             {formData.mitra.map((mitraName, index) => (
               <div key={index} className="form-group" style={{ marginBottom: '0' }}>
                 <label>Nama Lembaga {index + 1}</label>
-                <input type="text" value={mitraName} onChange={(e) => handleMitraChange(index, e.target.value)} required />
+                <div style={{ display: 'flex', gap: '10px' }}>
+                  <input type="text" value={mitraName} onChange={(e) => handleMitraChange(index, e.target.value)} required style={{ flex: 1 }} />
+                  <button type="button" onClick={() => removeMitra(index)} style={{ padding: '8px 12px', background: '#e11d48', color: 'white', border: 'none', borderRadius: '4px', cursor: 'pointer' }}>Hapus</button>
+                </div>
               </div>
             ))}
           </div>

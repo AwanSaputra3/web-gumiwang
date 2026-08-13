@@ -347,11 +347,13 @@ function Beranda() {
       {/* 6. Mitra Kami - Clean Grayscale */}
       <section className="mitra-section-clean">
         <div className="container">
-          <div className="mitra-logos-clean">
+          <div className="mitra-container-clean">
             <span className="mitra-label-clean">Didukung Oleh:</span>
-            {mitraData.map((mitra, idx) => (
-              <div key={idx} className="mitra-logo-item">{mitra}</div>
-            ))}
+            <div className="mitra-logos-scroll">
+              {mitraData.map((mitra, idx) => (
+                <div key={idx} className="mitra-logo-item">{mitra}</div>
+              ))}
+            </div>
           </div>
         </div>
       </section>

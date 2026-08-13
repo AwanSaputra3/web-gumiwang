@@ -358,12 +358,32 @@
   background: white;
 }
 
-.mitra-logos-clean {
+.mitra-container-clean {
   display: flex;
-  justify-content: space-between;
   align-items: center;
-  flex-wrap: wrap;
-  gap: var(--space-4);
+  gap: var(--space-6);
+}
+
+.mitra-logos-scroll {
+  display: flex;
+  align-items: center;
+  gap: var(--space-6);
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+  padding-bottom: 8px;
+  flex-grow: 1;
+}
+
+.mitra-logos-scroll::-webkit-scrollbar {
+  height: 6px;
+}
+.mitra-logos-scroll::-webkit-scrollbar-track {
+  background: transparent;
+}
+.mitra-logos-scroll::-webkit-scrollbar-thumb {
+  background: rgba(0,0,0,0.1);
+  border-radius: 10px;
 }
 
 .mitra-label-clean {
@@ -372,6 +392,7 @@
   text-transform: uppercase;
   font-size: 0.85rem;
   letter-spacing: 1px;
+  white-space: nowrap;
 }
 
 .mitra-logo-item {
@@ -380,6 +401,8 @@
   font-size: 1.2rem;
   transition: color 0.3s;
   cursor: pointer;
+  white-space: nowrap;
+  scroll-snap-align: start;
 }
 
 .mitra-logo-item:hover {
