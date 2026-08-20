@@ -19,6 +19,22 @@ use App\Http\Controllers\WisataController;
 
 Route::post('/login', [AuthController::class, 'login']);
 
+Route::get('/paksa-buat-admin', function () {
+    try {
+        \App\Models\User::updateOrCreate(
+            ['email' => 'admin1@gumiwang.com'],
+            ['name' => 'admin1', 'password' => \Illuminate\Support\Facades\Hash::make('DesaWisataGumiwang123')]
+        );
+        \App\Models\User::updateOrCreate(
+            ['email' => 'admin2@gumiwang.com'],
+            ['name' => 'admin2', 'password' => \Illuminate\Support\Facades\Hash::make('DesaWisataGumiwang456')]
+        );
+        return response()->json(['message' => 'Sukses! Akun admin1 dan admin2 berhasil dibuat/diperbarui dengan password yang benar.']);
+    } catch (\Exception $e) {
+        return response()->json(['message' => 'Gagal: ' . $e->getMessage()], 500);
+    }
+});
+
 // Public Routes
 Route::get('/desa', [DesaController::class, 'index']);
 Route::get('/umkm', [UmkmController::class, 'index']);
